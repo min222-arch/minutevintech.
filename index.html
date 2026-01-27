@@ -506,6 +506,69 @@ white-space:pre;
 opacity:.9;
 text-shadow:0 0 12px rgba(56,189,248,.35);
 }
+/* ================= MOBILE RESPONSIVE FIX ================= */
+
+@media (max-width: 768px){
+
+  /* prevent side cut */
+  body{
+    overflow-x:hidden;
+  }
+
+  section{
+    padding:80px 20px;
+  }
+
+  /* ABOUT BOX */
+  .about-box{
+    padding:35px 25px;
+    border-radius:24px;
+    font-size:16px;
+    line-height:1.8;
+  }
+
+  /* CONTACT FORM */
+  .neo-form{
+    padding:40px 25px;
+    border-radius:28px;
+  }
+
+  .neo-grid{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
+  .neo-field input,
+  .neo-field select,
+  .neo-field textarea{
+    padding:16px;
+    font-size:15px;
+  }
+
+  .neo-btn{
+    padding:18px;
+    font-size:16px;
+  }
+
+  /* headings */
+  section h2{
+    font-size:32px;
+  }
+
+  /* hero spacing */
+  .hero{
+    padding:160px 20px 120px;
+  }
+
+  .hero h1{
+    font-size:36px;
+    line-height:1.2;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+}
 
 </style>
 </head>
@@ -763,3 +826,4 @@ document.addEventListener("touchmove", e=>{
 </script>
 </body>
 </html>
+
