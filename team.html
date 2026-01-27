@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Leadership Team | Minutevin Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
+
+/* ================= PARTICLES ================= */
+
+#particles{
+position:fixed;
+inset:0;
+z-index:-5;
+}
+
+.particle{
+position:absolute;
+width:4px;
+height:4px;
+border-radius:50%;
+background:#38bdf8;
+opacity:.3;
+animation:float linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(110vh)}
+to{transform:translateY(-20vh)}
+}
+
+/* ================= FLOATING ICON NAV ================= */
+
+.floating-nav{
+position:fixed;
+right:25px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:999;
+}
+
+.floating-nav a{
+width:48px;
+height:48px;
+border-radius:50%;
+background:#020617;
+border:1px solid #1e293b;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#38bdf8;
+text-decoration:none;
+font-size:20px;
+transition:.3s;
+opacity:.7;
+}
+
+.floating-nav a:hover{
+background:#38bdf8;
+color:#020617;
+opacity:1;
+}
+
+/* ================= TEAM SECTION ================= */
+
+.team-section{
+max-width:1300px;
+margin:140px auto;
+padding:0 20px;
+text-align:center;
+opacity:0;
+transform:translateY(80px);
+transition:1.2s ease;
+}
+
+.team-section.show{
+opacity:1;
+transform:none;
+}
+
+.team-section h2{
+font-size:44px;
+margin-bottom:15px;
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.team-section p{
+color:#cbd5e1;
+max-width:900px;
+margin:0 auto 70px;
+font-size:18px;
+line-height:1.8;
+}
+
+/* ================= CAROUSEL ================= */
+
+.carousel{
+position:relative;
+overflow:hidden;
+padding:40px 0;
+}
+
+.track{
+display:flex;
+gap:45px;
+transition:transform .9s cubic-bezier(.4,.0,.2,1);
+}
+
+/* ================= CARD ================= */
+
+.card{
+min-width:330px;
+background:rgba(15,23,42,.88);
+border-radius:30px;
+padding:50px 35px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+transform:scale(.85);
+opacity:.4;
+transition:.6s ease;
+position:relative;
+}
+
+.card.active{
+transform:scale(1.05);
+opacity:1;
+box-shadow:0 70px 140px rgba(0,0,0,.9);
+}
+
+/* parallax glow */
+.card::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:30px;
+background:linear-gradient(120deg,#38bdf8,#2563eb,#38bdf8);
+opacity:.05;
+pointer-events:none;
+}
+
+/* ================= PHOTO ================= */
+
+.photo-ring{
+width:180px;
+height:180px;
+margin:0 auto 22px;
+border-radius:50%;
+padding:6px;
+background:linear-gradient(135deg,#38bdf8,#2563eb);
+}
+
+.photo-ring img{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:contain;
+background:#020617;
+}
+
+/* ================= TEXT ================= */
+
+.card h3{font-size:22px;margin-top:10px}
+.role{color:#38bdf8;font-weight:600;margin:8px 0}
+
+/* department tags */
+.tag{
+display:inline-block;
+padding:6px 14px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+margin-bottom:15px;
+}
+
+.exec{background:#f59e0b33;color:#fbbf24}
+.tech{background:#2563eb33;color:#60a5fa}
+.ops{background:#22c55e33;color:#4ade80}
+
+/* ================= PROFILE ================= */
+
+.profile-btn{
+background:none;
+border:none;
+color:#38bdf8;
+font-weight:600;
+cursor:pointer;
+display:flex;
+align-items:center;
+gap:6px;
+margin:0 auto;
+}
+
+.profile-btn span{transition:.4s}
+
+.profile{
+max-height:0;
+overflow:hidden;
+opacity:0;
+transform:translateY(-10px);
+transition:.6s ease;
+}
+
+.profile.active{
+max-height:600px;
+opacity:1;
+transform:none;
+}
+
+.profile p{
+margin-top:18px;
+font-size:15px;
+line-height:1.9;
+color:#cbd5e1;
+}
+
+/* ================= ARROWS ================= */
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:55px;
+height:55px;
+border-radius:50%;
+background:#020617;
+border:1px solid #1e293b;
+color:white;
+font-size:24px;
+cursor:pointer;
+z-index:10;
+transition:.3s;
+}
+
+.arrow:hover{
+background:#38bdf8;
+color:#020617;
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+.card{min-width:280px}
+.team-section h2{font-size:34px}
+}
+/* ================= NAVBAR ================= */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(2,6,23,.85);
+backdrop-filter:blur(24px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+max-width:1300px;
+margin:auto;
+padding:14px 28px;
+display:flex;
+align-items:center;
+}
+
+/* brand */
+.brand{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.brand img{
+height:44px;
+width:auto;
+object-fit:contain;
+}
+
+.brand-text h1{
+font-size:19px;
+font-weight:700;
+margin:0;
+line-height:1.1;
+color:white;
+}
+
+/* code tagline */
+.tagline{
+margin-top:4px;
+font-family:Consolas, Monaco, monospace;
+font-size:12px;
+line-height:1.4;
+color:#38bdf8;
+white-space:pre;
+text-shadow:0 0 12px rgba(56,189,248,.35);
+opacity:.95;
+}
+
+/* push page content down */
+.team-section{
+margin-top:200px;
+}
+
+/* mobile */
+@media(max-width:600px){
+.brand img{height:36px;}
+.brand-text h1{font-size:16px;}
+.tagline{font-size:10.5px;}
+}
+/* ================= FOOTER ================= */
+
+.footer{
+margin-top:160px;
+padding:80px 30px 30px;
+background:rgba(2,6,23,.95);
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-container{
+max-width:1300px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:60px;
+}
+
+.footer-brand{
+display:flex;
+gap:18px;
+align-items:flex-start;
+}
+
+.footer-brand img{
+height:46px;
+width:auto;
+object-fit:contain;
+}
+
+.footer-brand h3{
+margin:0 0 8px;
+font-size:20px;
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.footer-tagline{
+font-family:Consolas, Monaco, monospace;
+font-size:12px;
+line-height:1.45;
+color:#38bdf8;
+white-space:pre;
+opacity:.9;
+text-shadow:0 0 12px rgba(56,189,248,.35);
+}
+
+.footer-col h4{
+margin-bottom:18px;
+font-size:16px;
+color:white;
+}
+
+.footer-col ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.footer-col li{
+margin-bottom:10px;
+font-size:15px;
+color:#cbd5e1;
+}
+
+.footer-bottom{
+margin-top:60px;
+padding-top:25px;
+text-align:center;
+font-size:14px;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* responsive */
+@media(max-width:900px){
+.footer-container{
+grid-template-columns:1fr;
+gap:45px;
+}
+}
+
+</style>
+</head>
+
+<body>
+<header class="navbar">
+  <div class="nav-container">
+
+    <div class="brand">
+      <img src="updated__minutevin_logo_-removebg-preview.png" alt="Minutevin Technologies Logo">
+
+      <div class="brand-text">
+        <h1>Minutevin Technologies</h1>
+
+        <pre class="tagline">
+if success() == true:
+    celebrate()
+else:
+    try_again()  // be_awesome
+        </pre>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- FLOATING ICON NAV -->
+<div class="floating-nav">
+<a href="#team">👥</a>
+<a href="#contact">✉️</a>
+<a href="#">⬆</a>
+</div>
+
+<section class="team-section" id="team">
+
+<h2>Leadership Team</h2>
+<p>
+Our leadership team brings together innovation, engineering excellence
+and strategic vision to deliver world-class digital solutions.
+</p>
+
+<div class="carousel">
+
+<button class="arrow prev">‹</button>
+<button class="arrow next">›</button>
+
+<div class="track">
+
+<!-- CEO -->
+<div class="card">
+<div class="photo-ring">
+<img src="yugi.jpeg">
+</div>
+<h3>Vincent Oyugi</h3>
+<div class="role">Chief Executive Officer</div>
+<div class="tag exec">Executive</div>
+
+<button class="profile-btn">View Profile <span>▾</span></button>
+<div class="profile">
+<p>
+Founder and CEO of Minutevin Technologies. Leads enterprise systems,
+cloud infrastructure, cybersecurity strategy and digital transformation
+initiatives across Africa and beyond.
+</p>
+</div>
+</div>
+
+<!-- TECH -->
+<div class="card">
+<div class="photo-ring">
+<img src="https://i.pinimg.com/736x/5e/87/00/5e8700424201eb225c9a7dea4c3ec7f4.jpg">
+</div>
+<h3>Technical Director</h3>
+<div class="role">Technology & Infrastructure</div>
+<div class="tag tech">Technology</div>
+
+<button class="profile-btn">View Profile <span>▾</span></button>
+<div class="profile">
+<p>
+Oversees platform architecture, cybersecurity frameworks,
+software engineering standards and cloud deployments.
+</p>
+</div>
+</div>
+
+<!-- OPS -->
+<div class="card">
+<div class="photo-ring">
+<img src="https://i.pinimg.com/736x/1c/9b/95/1c9b956d8b7763ceb1b09306f63efcdf.jpg">
+</div>
+<h3>Operations Manager</h3>
+<div class="role">Business Operations</div>
+<div class="tag ops">Operations</div>
+
+<button class="profile-btn">View Profile <span>▾</span></button>
+<div class="profile">
+<p>
+Manages daily operations, service delivery, internal coordination,
+customer success and performance optimization.
+</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <img src="updated__minutevin_logo_-removebg-preview.png">
+
+      <div>
+        <h3>Minutevin Technologies</h3>
+
+        <pre class="footer-tagline">
+if success() == true:
+    celebrate()
+else:
+    try_again()  // be_awesome
+        </pre>
+      </div>
+    </div>
+
+    <!-- LINKS -->
+    <div class="footer-col">
+      <h4>Core Services</h4>
+      <ul>
+        <li>Software Development</li>
+        <li>Mobile Applications</li>
+        <li>POS Systems</li>
+        <li>Cloud Solutions</li>
+        <li>Cybersecurity</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>📍 Nairobi, Kenya</li>
+        <li>📞 +254 700 000 000</li>
+        <li>✉ info@minutevin.com</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Minutevin Technologies. All rights reserved.
+  </div>
+
+</footer>
+
+<script>
+/* PARTICLES */
+const pBox=document.getElementById("particles");
+for(let i=0;i<90;i++){
+const p=document.createElement("div");
+p.className="particle";
+p.style.left=Math.random()*100+"%";
+p.style.animationDuration=10+Math.random()*20+"s";
+p.style.animationDelay=Math.random()*20+"s";
+pBox.appendChild(p);
+}
+
+/* CAROUSEL */
+const track=document.querySelector(".track");
+let cards=[...document.querySelectorAll(".card")];
+const prev=document.querySelector(".prev");
+const next=document.querySelector(".next");
+
+let index=1;
+let width;
+
+track.prepend(cards[cards.length-1].cloneNode(true));
+track.append(cards[0].cloneNode(true));
+cards=[...document.querySelectorAll(".card")];
+
+function setup(){
+width=cards[0].offsetWidth+45;
+track.style.transform=`translateX(-${width*index}px)`;
+activate();
+}
+window.addEventListener("resize",setup);
+
+function activate(){
+cards.forEach(c=>c.classList.remove("active"));
+cards[index].classList.add("active");
+}
+
+next.onclick=()=>{index++;move();}
+prev.onclick=()=>{index--;move();}
+
+function move(){
+track.style.transform=`translateX(-${width*index}px)`;
+activate();
+}
+
+track.addEventListener("transitionend",()=>{
+if(index===cards.length-1){
+track.style.transition="none";
+index=1;move();track.offsetHeight;
+track.style.transition="";
+}
+if(index===0){
+track.style.transition="none";
+index=cards.length-2;move();track.offsetHeight;
+track.style.transition="";
+}
+});
+
+/* AUTO SLIDE */
+setInterval(()=>{index++;move();},7000);
+
+/* PROFILE TOGGLE */
+document.querySelectorAll(".profile-btn").forEach(btn=>{
+btn.onclick=()=>{
+const p=btn.nextElementSibling;
+p.classList.toggle("active");
+btn.querySelector("span").style.transform=
+p.classList.contains("active")?"rotate(180deg)":"rotate(0)";
+};
+});
+
+/* SCROLL REVEAL */
+const section=document.querySelector(".team-section");
+window.addEventListener("scroll",()=>{
+if(section.getBoundingClientRect().top < window.innerHeight-120){
+section.classList.add("show");
+}
+});
+
+setup();
+</script>
+
+</body>
+</html>

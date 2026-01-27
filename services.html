@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Services | Minutevin Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
+
+/* ================= PARTICLES ================= */
+canvas{
+position:fixed;
+inset:0;
+z-index:-3;
+}
+
+/* ================= SECTION ================= */
+.services-section{
+max-width:1300px;
+margin:auto;
+padding:120px 20px;
+text-align:center;
+}
+
+.services-section h2{
+font-size:46px;
+margin-bottom:15px;
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.services-section p{
+color:#cbd5e1;
+max-width:900px;
+margin:0 auto 80px;
+font-size:18px;
+line-height:1.8;
+}
+
+/* ================= GRID ================= */
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+/* ================= CARD ================= */
+.service-card{
+position:relative;
+padding:55px 35px;
+border-radius:30px;
+background:rgba(15,23,42,.88);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+overflow:hidden;
+transition:.5s ease;
+}
+
+/* glowing top bar */
+.service-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:4px;
+background:linear-gradient(90deg,#38bdf8,#2563eb);
+}
+
+/* hover glow */
+.service-card:hover{
+transform:translateY(-16px);
+box-shadow:0 60px 140px rgba(0,0,0,.8);
+}
+
+/* ================= TAG ================= */
+.tag{
+position:absolute;
+top:18px;
+right:18px;
+padding:6px 14px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+background:rgba(56,189,248,.15);
+color:#38bdf8;
+border:1px solid rgba(56,189,248,.4);
+}
+
+/* ================= ICON ================= */
+.service-icon{
+width:80px;
+height:80px;
+margin:0 auto 25px;
+border-radius:24px;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:36px;
+box-shadow:0 0 50px rgba(56,189,248,.6);
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-8px)}
+}
+
+/* ================= TEXT ================= */
+.service-card h3{
+font-size:24px;
+margin-bottom:12px;
+}
+
+.service-card p{
+font-size:16px;
+color:#cbd5e1;
+line-height:1.7;
+}
+
+/* ================= BUTTON ================= */
+.service-btn{
+margin-top:22px;
+background:none;
+border:none;
+color:#38bdf8;
+font-weight:600;
+cursor:pointer;
+display:flex;
+gap:6px;
+align-items:center;
+margin-left:auto;
+margin-right:auto;
+}
+
+.service-btn span{
+transition:.4s;
+}
+
+/* ================= DETAILS ================= */
+.service-details{
+max-height:0;
+overflow:hidden;
+opacity:0;
+transform:translateY(-10px);
+transition:.6s ease;
+}
+
+.service-details.active{
+max-height:500px;
+opacity:1;
+transform:none;
+}
+
+.service-details ul{
+margin-top:22px;
+padding-left:20px;
+line-height:2;
+color:#cbd5e1;
+font-size:15px;
+}
+
+/* ================= REVEAL ================= */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
+}
+
+.reveal.show{
+opacity:1;
+transform:none;
+}
+
+/* ================= MODAL ================= */
+.modal{
+position:fixed;
+inset:0;
+background:rgba(2,6,23,.85);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.modal-content{
+max-width:600px;
+background:#020617;
+padding:50px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.1);
+box-shadow:0 40px 120px rgba(0,0,0,.9);
+}
+
+.modal-content h3{
+margin-bottom:15px;
+color:#38bdf8;
+}
+
+.modal-content p{
+line-height:1.8;
+color:#cbd5e1;
+}
+
+.close{
+margin-top:25px;
+padding:12px 28px;
+border:none;
+border-radius:30px;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+color:white;
+cursor:pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:700px){
+.services-section h2{font-size:36px}
+}
+/* ================= COUNTERS ================= */
+
+.counter-section{
+max-width:1200px;
+margin:120px auto;
+padding:0 20px;
+text-align:center;
+}
+
+.counter-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+}
+
+.counter-box{
+padding:50px 30px;
+border-radius:30px;
+background:rgba(15,23,42,.9);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+transition:.5s;
+}
+
+.counter-box:hover{
+transform:translateY(-12px);
+box-shadow:0 40px 120px rgba(0,0,0,.7);
+}
+
+.counter-box h3{
+font-size:54px;
+font-weight:800;
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:10px;
+}
+
+.counter-box p{
+color:#cbd5e1;
+letter-spacing:.5px;
+font-size:17px;
+}
+/* ================= BRAND TAGLINE ================= */
+
+.tagline{
+margin-top:6px;
+font-family:Consolas, Monaco, monospace;
+font-size:12.5px;
+line-height:1.45;
+color:#38bdf8;
+white-space:pre;
+opacity:.95;
+}
+
+/* subtle glow */
+.tagline{
+text-shadow:0 0 12px rgba(56,189,248,.35);
+}
+
+/* mobile */
+@media(max-width:600px){
+.tagline{
+font-size:11px;
+}
+}
+/* ================= NAVBAR FIX ================= */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(2,6,23,.8);
+backdrop-filter:blur(24px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+max-width:1300px;
+margin:auto;
+padding:14px 28px;
+display:flex;
+align-items:center;
+}
+
+/* brand layout */
+.brand{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+/* LOGO SIZE FIX */
+.brand img{
+height:44px;          /* ✅ perfect desktop size */
+width:auto;
+object-fit:contain;
+}
+
+/* company name */
+.brand-text h1{
+font-size:19px;
+font-weight:700;
+margin:0;
+line-height:1.1;
+color:white;
+}
+
+/* code tagline */
+.tagline{
+margin-top:4px;
+font-family:Consolas, Monaco, monospace;
+font-size:12px;
+line-height:1.4;
+color:#38bdf8;
+white-space:pre;
+text-shadow:0 0 12px rgba(56,189,248,.35);
+opacity:.95;
+}
+
+/* push content down so navbar doesn't overlap */
+.services-section{
+padding-top:180px;
+}
+
+/* MOBILE OPTIMIZATION */
+@media(max-width:600px){
+
+.brand img{
+height:36px;
+}
+
+.brand-text h1{
+font-size:16px;
+}
+
+.tagline{
+font-size:10.5px;
+line-height:1.3;
+}
+
+}
+/* ================= FOOTER ================= */
+
+.footer{
+margin-top:140px;
+padding:80px 30px 30px;
+background:rgba(2,6,23,.92);
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-container{
+max-width:1300px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:60px;
+align-items:flex-start;
+}
+
+/* brand */
+.footer-brand{
+display:flex;
+gap:18px;
+align-items:flex-start;
+}
+
+.footer-brand img{
+height:46px;
+width:auto;
+object-fit:contain;
+}
+
+.footer-brand h3{
+margin:0 0 8px;
+font-size:20px;
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.footer-tagline{
+font-family:Consolas, Monaco, monospace;
+font-size:12px;
+line-height:1.45;
+color:#38bdf8;
+white-space:pre;
+opacity:.9;
+text-shadow:0 0 12px rgba(56,189,248,.35);
+}
+
+/* columns */
+.footer-col h4{
+margin-bottom:18px;
+color:white;
+font-size:16px;
+}
+
+.footer-col ul{
+padding:0;
+margin:0;
+list-style:none;
+}
+
+.footer-col li{
+margin-bottom:10px;
+font-size:15px;
+color:#cbd5e1;
+}
+
+/* bottom */
+.footer-bottom{
+margin-top:60px;
+padding-top:25px;
+text-align:center;
+font-size:14px;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* responsive */
+@media(max-width:900px){
+.footer-container{
+grid-template-columns:1fr;
+gap:45px;
+}
+
+.footer-brand{
+flex-direction:row;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+<header class="navbar">
+  <div class="nav-container">
+
+    <div class="brand">
+      <img src="updated__minutevin_logo_-removebg-preview.png" alt="Minutevin Technologies Logo">
+
+      <div class="brand-text">
+        <h1>Minutevin Technologies</h1>
+
+        <pre class="tagline">
+if success() == true:
+    celebrate()
+else:
+    try_again()  // be_awesome
+        </pre>
+
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<section class="services-section">
+
+<h2>Our Services</h2>
+<p>
+We provide enterprise-grade digital solutions designed to accelerate growth,
+enhance security and automate business operations.
+</p>
+
+<div class="services-grid">
+
+<div class="service-card reveal">
+<div class="tag">Development</div>
+<div class="service-icon">💻</div>
+<h3>Software Development</h3>
+<p>Scalable enterprise applications and automation systems.</p>
+<button class="service-btn">Learn More <span>▾</span></button>
+<div class="service-details">
+<ul>
+<li>ERP & CRM systems</li>
+<li>Web dashboards</li>
+<li>Automation workflows</li>
+<li>API integrations</li>
+<li>Secure databases</li>
+</ul>
+</div>
+</div>
+
+<div class="service-card reveal">
+<div class="tag">Mobile</div>
+<div class="service-icon">📱</div>
+<h3>Mobile Applications</h3>
+<p>High-performance Android & iOS apps.</p>
+<button class="service-btn">Learn More <span>▾</span></button>
+<div class="service-details">
+<ul>
+<li>Flutter apps</li>
+<li>Native Android</li>
+<li>Payment gateways</li>
+<li>Push notifications</li>
+</ul>
+</div>
+</div>
+
+<div class="service-card reveal">
+<div class="tag">Retail</div>
+<div class="service-icon">🧾</div>
+<h3>POS Systems</h3>
+<p>Smart POS systems for retail and enterprises.</p>
+<button class="service-btn">Learn More <span>▾</span></button>
+<div class="service-details">
+<ul>
+<li>Inventory tracking</li>
+<li>Sales & invoicing</li>
+<li>Multi-branch reports</li>
+<li>Offline support</li>
+</ul>
+</div>
+</div>
+
+<div class="service-card reveal">
+<div class="tag">Security</div>
+<div class="service-icon">🔐</div>
+<h3>Cybersecurity</h3>
+<p>Protect your systems and business data.</p>
+<button class="service-btn">Learn More <span>▾</span></button>
+<div class="service-details">
+<ul>
+<li>Security audits</li>
+<li>Firewall setup</li>
+<li>Threat monitoring</li>
+<li>Pen-testing</li>
+</ul>
+</div>
+</div>
+
+<div class="service-card reveal">
+<div class="tag">Cloud</div>
+<div class="service-icon">☁</div>
+<h3>Cloud Solutions</h3>
+<p>Scalable and reliable cloud infrastructure.</p>
+<button class="service-btn">Learn More <span>▾</span></button>
+<div class="service-details">
+<ul>
+<li>AWS / Azure</li>
+<li>Cloud migration</li>
+<li>Backups</li>
+<li>Disaster recovery</li>
+</ul>
+</div>
+</div>
+
+<div class="service-card reveal">
+<div class="tag">Marketing</div>
+<div class="service-icon">📈</div>
+<h3>Digital Marketing</h3>
+<p>Grow traffic, leads and brand visibility.</p>
+<button class="service-btn">Learn More <span>▾</span></button>
+<div class="service-details">
+<ul>
+<li>SEO</li>
+<li>Google Ads</li>
+<li>Social media</li>
+<li>Brand strategy</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+<section class="counter-section reveal">
+  <div class="counter-grid">
+
+    <div class="counter-box">
+      <h3 class="counter" data-target="120">0</h3>
+      <p>Projects Completed</p>
+    </div>
+
+    <div class="counter-box">
+      <h3 class="counter" data-target="85">0</h3>
+      <p>Happy Clients</p>
+    </div>
+
+    <div class="counter-box">
+      <h3 class="counter" data-target="15">0</h3>
+      <p>Years Experience</p>
+    </div>
+
+    <div class="counter-box">
+      <h3 class="counter" data-target="24">0</h3>
+      <p>Support Hours</p>
+    </div>
+
+  </div>
+</section>
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <img src="updated__minutevin_logo_-removebg-preview.png" alt="Minutevin Technologies Logo">
+
+      <div>
+        <h3>Minutevin Technologies</h3>
+
+        <pre class="footer-tagline">
+if success() == true:
+    celebrate()
+else:
+    try_again()  // be_awesome
+        </pre>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Software Development</li>
+        <li>Mobile Applications</li>
+        <li>POS Systems</li>
+        <li>Cloud Solutions</li>
+        <li>Cybersecurity</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>📍 Nairobi, Kenya</li>
+        <li>📞 +254 792474356</li>
+        <li>✉ info@minutevintech.co.ke</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Minutevin Technologies. All rights reserved.
+  </div>
+
+</footer>
+
+<script>
+/* accordion */
+document.querySelectorAll(".service-btn").forEach(btn=>{
+btn.onclick=()=>{
+document.querySelectorAll(".service-details").forEach(d=>{
+if(d!==btn.nextElementSibling)d.classList.remove("active");
+});
+document.querySelectorAll(".service-btn span").forEach(s=>{
+s.style.transform="rotate(0deg)";
+});
+btn.nextElementSibling.classList.toggle("active");
+btn.querySelector("span").style.transform=
+btn.nextElementSibling.classList.contains("active")
+?"rotate(180deg)":"rotate(0deg)";
+};
+});
+
+/* reveal */
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+reveals.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-80){
+el.classList.add("show");
+}
+});
+});
+
+/* particles */
+const c=document.getElementById("particles");
+const ctx=c.getContext("2d");
+let w,h;
+function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+resize();window.onresize=resize;
+
+let dots=Array.from({length:90},()=>({
+x:Math.random()*w,
+y:Math.random()*h,
+vx:(Math.random()-.5)*.4,
+vy:(Math.random()-.5)*.4
+}));
+
+function draw(){
+ctx.clearRect(0,0,w,h);
+dots.forEach(d=>{
+d.x+=d.vx;
+d.y+=d.vy;
+if(d.x<0||d.x>w)d.vx*=-1;
+if(d.y<0||d.y>h)d.vy*=-1;
+ctx.fillStyle="#38bdf8";
+ctx.globalAlpha=.25;
+ctx.beginPath();
+ctx.arc(d.x,d.y,2,0,Math.PI*2);
+ctx.fill();
+});
+requestAnimationFrame(draw);
+}
+draw();
+/* ================= COUNTER ANIMATION ================= */
+
+const counters = document.querySelectorAll(".counter");
+let counterStarted = false;
+
+function startCounters() {
+  if (counterStarted) return;
+
+  counters.forEach(counter => {
+    const target = +counter.dataset.target;
+    let count = 0;
+    const speed = target / 120;
+
+    const update = () => {
+      count += speed;
+      if (count < target) {
+        counter.innerText = Math.ceil(count);
+        requestAnimationFrame(update);
+      } else {
+        counter.innerText = target + "+";
+      }
+    };
+
+    update();
+  });
+
+  counterStarted = true;
+}
+
+window.addEventListener("scroll", () => {
+  const section = document.querySelector(".counter-section");
+  if (
+    section.getBoundingClientRect().top <
+    window.innerHeight - 120
+  ) {
+    startCounters();
+  }
+});
+
+</script>
+
+</body>
+</html>

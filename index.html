@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Minutevin Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Minutevin Technologies – Software Development, POS Systems, Cybersecurity, Cloud & Digital Solutions across Africa.">
+
+<link rel="icon" href="assets/favicon.png">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#020617;color:white}
+
+/* ================= NAVBAR ================= */
+header{
+position:sticky;
+top:0;
+z-index:1000;
+padding:18px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(2,6,23,.95);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.06)
+}
+
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:45px}
+.logo span{
+font-size:22px;
+font-weight:700;
+background:linear-gradient(90deg,#38bdf8,#2563eb);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent
+}
+
+nav a{
+margin-left:28px;
+color:#e5e7eb;
+text-decoration:none;
+position:relative
+}
+
+nav a::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+height:2px;
+width:0;
+background:#38bdf8;
+transition:.3s
+}
+nav a:hover::after{width:100%}
+
+/* ================= HERO ================= */
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+padding:140px 20px;
+}
+
+.hero-slider{
+position:absolute;
+inset:0;
+z-index:-2;
+}
+
+.hero-img{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transform:scale(1.1);
+transition:opacity 1.6s ease, transform 10s ease;
+}
+
+.hero-img.active{
+opacity:.5;
+transform:scale(1);
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+rgba(2,6,23,.65),
+rgba(2,6,23,.9)
+);
+z-index:-1;
+}
+
+.hero img{
+height:160px;
+margin-bottom:25px
+}
+
+.hero h1{font-size:56px;font-weight:800}
+.hero p{color:#cbd5f5;margin:20px 0 40px}
+
+.btn{
+padding:16px 42px;
+border-radius:40px;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+color:white;
+text-decoration:none;
+font-weight:600
+}
+
+/* ================= ABOUT ================= */
+section{padding:110px 60px;text-align:center}
+
+section h2{
+font-size:42px;
+margin-bottom:20px;
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent
+}
+
+.about-box{
+max-width:1100px;
+margin:50px auto 0;
+background:rgba(15,23,42,.85);
+padding:70px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+box-shadow:0 40px 90px rgba(0,0,0,.6);
+color:#cbd5e1;
+line-height:1.9;
+font-size:18px
+}
+
+/* ================= CONTACT ================= */
+.contact-form{
+max-width:900px;
+margin:60px auto 0;
+background:rgba(15,23,42,.9);
+padding:60px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+box-shadow:0 40px 80px rgba(0,0,0,.5);
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-bottom:30px;
+}
+
+.input-box{
+display:flex;
+flex-direction:column;
+text-align:left;
+}
+
+.input-box label{
+font-size:14px;
+margin-bottom:8px;
+color:#94a3b8;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+padding:15px;
+border-radius:14px;
+border:1px solid #1e293b;
+background:#020617;
+color:white;
+font-size:15px;
+outline:none;
+}
+
+.submit-btn{
+width:100%;
+margin-top:15px;
+padding:18px;
+border:none;
+border-radius:40px;
+font-size:16px;
+font-weight:600;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+color:white;
+cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+footer{
+background:linear-gradient(180deg,#020617,#020b2a);
+border-top:1px solid #1e293b;
+margin-top:120px;
+}
+
+.footer-container{
+max-width:1300px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:50px;
+padding:70px 40px;
+}
+
+.footer-box h4{color:#38bdf8;margin-bottom:15px}
+.footer-box p,
+.footer-box li{color:#cbd5e1;line-height:1.8;font-size:15px}
+.footer-box ul{list-style:none}
+.footer-box ul li{margin-bottom:10px}
+
+.footer-bottom{
+text-align:center;
+padding:25px;
+border-top:1px solid #1e293b;
+color:#94a3b8;
+font-size:14px
+}
+/* ================= UNIQUE CONTACT FORM ================= */
+
+.neo-form{
+max-width:920px;
+margin:0 auto;
+padding:70px;
+border-radius:40px;
+background:rgba(15,23,42,.75);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,.1);
+box-shadow:0 60px 120px rgba(0,0,0,.6);
+position:relative;
+overflow:hidden;
+}
+
+/* animated glow border */
+.neo-form::before{
+content:"";
+position:absolute;
+inset:-2px;
+background:linear-gradient(120deg,#38bdf8,#2563eb,#38bdf8);
+z-index:-1;
+filter:blur(25px);
+opacity:.4;
+animation:glow 6s linear infinite;
+}
+
+@keyframes glow{
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+}
+
+.neo-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+margin-bottom:40px;
+}
+
+.neo-field{
+position:relative;
+}
+
+.neo-field input,
+.neo-field select,
+.neo-field textarea{
+width:100%;
+padding:20px 18px;
+border-radius:16px;
+border:1px solid #1e293b;
+background:#020617;
+color:white;
+font-size:15px;
+outline:none;
+transition:.3s;
+}
+
+.neo-field textarea{resize:none}
+
+.neo-field label{
+position:absolute;
+left:18px;
+top:20px;
+color:#94a3b8;
+font-size:14px;
+pointer-events:none;
+transition:.3s;
+background:#020617;
+padding:0 6px;
+}
+
+/* floating label */
+.neo-field input:focus + label,
+.neo-field input:valid + label,
+.neo-field textarea:focus + label,
+.neo-field textarea:valid + label,
+.neo-field select:focus + label,
+.neo-field select:valid + label{
+top:-9px;
+font-size:12px;
+color:#38bdf8;
+}
+
+.neo-field input:focus,
+.neo-field textarea:focus,
+.neo-field select:focus{
+border-color:#38bdf8;
+box-shadow:0 0 0 2px rgba(56,189,248,.25);
+}
+
+.neo-btn{
+width:100%;
+padding:20px;
+border:none;
+border-radius:50px;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+color:white;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+transition:.4s;
+}
+
+.neo-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 25px 60px rgba(37,99,235,.6);
+}
+
+/* mobile */
+@media(max-width:700px){
+.neo-form{
+padding:40px 25px;
+}
+}
+/* ================= AUTO HIDE NAV ================= */
+
+.nav-float{
+position:fixed;
+top:25px;
+right:25px;
+width:55px;
+height:55px;
+border-radius:50%;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+color:white;
+cursor:pointer;
+z-index:3000;
+opacity:0;
+pointer-events:none;
+transition:.4s;
+box-shadow:0 20px 40px rgba(37,99,235,.6);
+}
+
+/* visible icon */
+.nav-float.show{
+opacity:1;
+pointer-events:auto;
+}
+
+/* slide menu */
+header.hidden{
+transform:translateY(-120%);
+transition:.5s ease;
+}
+/* ================= AUTO HIDE NAV ================= */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:2000;
+transition:.5s ease;
+}
+
+header.hidden{
+transform:translateY(-120%);
+}
+
+/* floating icon */
+.nav-float{
+position:fixed;
+top:25px;
+right:25px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:white;
+cursor:pointer;
+z-index:3000;
+opacity:0;
+pointer-events:none;
+transition:.4s;
+box-shadow:0 25px 60px rgba(37,99,235,.6);
+}
+
+/* show icon */
+.nav-float.show{
+opacity:1;
+pointer-events:auto;
+}
+
+/* icon animation */
+#menuIcon{
+transition:.4s;
+}
+
+/* glass mobile menu */
+.nav-links{
+display:flex;
+gap:28px;
+}
+
+@media(max-width:900px){
+
+.nav-links{
+position:fixed;
+top:0;
+right:-100%;
+height:100vh;
+width:280px;
+background:rgba(2,6,23,.92);
+backdrop-filter:blur(25px);
+flex-direction:column;
+padding:140px 40px;
+gap:30px;
+transition:.5s ease;
+border-left:1px solid rgba(255,255,255,.08);
+}
+
+.nav-links.open{
+right:0;
+}
+
+.nav-links a{
+font-size:20px;
+}
+}
+/* ===== BRAND TEXT ===== */
+
+.brand-text{
+display:flex;
+flex-direction:column;
+line-height:1.2;
+}
+
+.brand-name{
+font-size:22px;
+font-weight:700;
+background:linear-gradient(90deg,#38bdf8,#2563eb);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* code-style tagline */
+.brand-tagline{
+margin-top:4px;
+font-family:Consolas, Monaco, monospace;
+font-size:12px;
+line-height:1.45;
+color:#38bdf8;
+white-space:pre;
+opacity:.95;
+text-shadow:0 0 12px rgba(56,189,248,.35);
+}
+
+/* mobile */
+@media(max-width:700px){
+.brand-name{font-size:18px;}
+.brand-tagline{font-size:10.5px;}
+}
+/* ===== FOOTER BRAND ===== */
+
+.footer-brand img{
+object-fit:contain;
+}
+
+.footer-tagline{
+margin:12px 0 5px;
+font-family:Consolas, Monaco, monospace;
+font-size:12px;
+line-height:1.5;
+color:#38bdf8;
+white-space:pre;
+opacity:.9;
+text-shadow:0 0 12px rgba(56,189,248,.35);
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="mainHeader">
+ <div class="logo">
+  <img src="updated__minutevin_logo_-removebg-preview.png">
+
+  <div class="brand-text">
+    <span class="brand-name">Minutevin Technologies</span>
+
+    <pre class="brand-tagline">
+if success() == true:
+    celebrate()
+else:
+    try_again()  // be_awesome
+    </pre>
+  </div>
+</div>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="#contact">Contact</a>
+        <a href="team.html">Team</a>
+  </nav>
+</header>
+
+<!-- floating tech icon -->
+<div class="nav-float" id="navFloat">
+  <span id="menuIcon">☰</span>
+</div>
+
+<!-- floating menu icon -->
+<div class="nav-float" id="navFloat">
+  ☰
+</div>
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-slider">
+  <img src="https://images.unsplash.com/photo-1526378722484-dcfc64e1cdd6?auto=format&fit=crop&w=1600&q=80" class="hero-img active">
+  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80" class="hero-img">
+  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" class="hero-img">
+</div>
+
+<img src="updated__minutevin_logo_-removebg-preview.png">
+<h1>Innovative Technology. Digital Excellence.</h1>
+<p>Software • Cybersecurity • Cloud • Digital Transformation</p>
+<a href="#contact" class="btn">Get Started</a>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+
+<div class="about-box">
+Minutevin Technologies is a forward-thinking digital solutions company
+delivering secure, scalable and innovative technology services.
+
+We specialize in software development, cybersecurity solutions,
+cloud infrastructure, POS systems and enterprise digital transformation.
+
+Our mission is to empower businesses across Africa and beyond through
+cutting-edge technology and trusted partnerships.
+</div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+
+<h2>Start Your Project</h2>
+<p style="margin-bottom:60px;color:#cbd5e1">
+Let’s build something powerful together.
+</p>
+
+<form 
+action="https://formsubmit.co/info@minutevintech.com"
+method="POST"
+class="neo-form">
+
+<input type="hidden" name="_captcha" value="false">
+
+<div class="neo-grid">
+
+  <div class="neo-field">
+    <input type="text" name="name" required>
+    <label>Full Name</label>
+  </div>
+
+  <div class="neo-field">
+    <input type="email" name="email" required>
+    <label>Email Address</label>
+  </div>
+
+  <div class="neo-field">
+    <input type="text" name="phone">
+    <label>Phone Number</label>
+  </div>
+
+  <div class="neo-field">
+    <select name="service" required>
+      <option value=""></option>
+      <option>Software Development</option>
+      <option>Mobile Applications</option>
+      <option>POS Systems</option>
+      <option>Cybersecurity</option>
+      <option>Cloud Solutions</option>
+      <option>Digital Marketing</option>
+      <option>Graphic Design</option>
+    </select>
+    <label>Service Required</label>
+  </div>
+
+</div>
+
+<div class="neo-field full">
+  <textarea rows="6" name="message" required></textarea>
+  <label>Project Description</label>
+</div>
+
+<button type="submit" class="neo-btn">
+  Send Message 🚀
+</button>
+
+</form>
+
+</section>
+
+
+<footer>
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-box footer-brand">
+      <img src="updated__minutevin_logo_-removebg-preview.png"
+           style="height:48px;margin-bottom:15px;">
+
+      <h4>Minutevin Technologies</h4>
+
+      <div class="footer-tagline">
+        if success() == true:<br>
+        &nbsp;&nbsp;celebrate()<br>
+        else:<br>
+        &nbsp;&nbsp;try_again() // be_awesome
+      </div>
+
+      <p style="margin-top:15px">
+        Delivering secure, scalable and innovative digital solutions
+        across Africa and beyond.
+      </p>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="footer-box">
+      <h4>Services</h4>
+      <ul>
+        <li>Software Development</li>
+        <li>POS Systems</li>
+        <li>Cybersecurity</li>
+        <li>Cloud Infrastructure</li>
+        <li>Digital Marketing</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-box">
+      <h4>Contact</h4>
+      <p>📞 +254 792474356</p>
+      <p>✉ info@minutevintech.co.ke</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Minutevin Technologies. All Rights Reserved.
+  </div>
+</footer>
+
+
+
+
+<script>
+/* HERO IMAGE ROTATION */
+const heroImages = document.querySelectorAll(".hero-img");
+let heroIndex = 0;
+
+setInterval(() => {
+  heroImages[heroIndex].classList.remove("active");
+  heroIndex = (heroIndex + 1) % heroImages.length;
+  heroImages[heroIndex].classList.add("active");
+}, 5000);
+let lastScroll = 0;
+
+const header = document.getElementById("mainHeader");
+const floatBtn = document.getElementById("navFloat");
+const navLinks = document.getElementById("navLinks");
+const menuIcon = document.getElementById("menuIcon");
+
+/* auto hide on scroll */
+window.addEventListener("scroll", () => {
+  const current = window.pageYOffset;
+
+  if (current > lastScroll && current > 120) {
+    header.classList.add("hidden");
+    floatBtn.classList.add("show");
+  } else {
+    header.classList.remove("hidden");
+    floatBtn.classList.remove("show");
+  }
+
+  lastScroll = current;
+});
+
+/* toggle menu */
+floatBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+
+  if (navLinks.classList.contains("open")) {
+    menuIcon.innerHTML = "✕";
+    menuIcon.style.transform = "rotate(180deg)";
+  } else {
+    menuIcon.innerHTML = "☰";
+    menuIcon.style.transform = "rotate(0deg)";
+  }
+});
+
+/* close menu on link click */
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    navLinks.classList.remove("open");
+    menuIcon.innerHTML = "☰";
+  });
+});
+
+/* swipe close support */
+let startX = 0;
+
+document.addEventListener("touchstart", e=>{
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchmove", e=>{
+  let moveX = e.touches[0].clientX;
+
+  if(startX - moveX > 80){
+    navLinks.classList.remove("open");
+    menuIcon.innerHTML = "☰";
+  }
+});
+</script>
+</body>
+</html>
