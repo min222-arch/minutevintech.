@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Training | Minutevin Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico">
+
+<style>
+html{scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}
+
+body{background:#020617;color:#e5e7eb;line-height:1.7}
+section{padding:90px 20px}
+.container{max-width:1200px;margin:auto}
+
+/* HERO */
+.hero{
+background:linear-gradient(120deg,rgba(2,6,23,.92),rgba(15,23,42,.92)),
+url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+background-size:cover;
+background-position:center;
+text-align:center;
+padding:140px 20px;
+}
+
+.hero h1{font-size:56px;color:#38bdf8;font-weight:900}
+.hero p{max-width:900px;margin:25px auto;font-size:21px;color:#cbd5e1}
+
+.hero button{
+padding:18px 60px;border-radius:50px;border:none;
+background:linear-gradient(135deg,#22c55e,#38bdf8);
+color:#020617;font-size:21px;font-weight:800;
+cursor:pointer;margin-top:30px
+}
+
+/* TITLES */
+h2{text-align:center;font-size:42px;color:#22c55e;margin-bottom:55px}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+
+.card{
+background:#020617;border-radius:24px;padding:38px;
+border:1px solid #1e293b;transition:.35s;position:relative
+}
+.card::before{
+content:"";position:absolute;top:0;left:0;width:100%;height:4px;
+background:linear-gradient(90deg,#22c55e,#38bdf8)
+}
+.card:hover{transform:translateY(-12px);box-shadow:0 0 45px rgba(56,189,248,.35)}
+
+.icon{font-size:58px;margin-bottom:15px}
+
+/* FORM */
+form{
+max-width:760px;margin:auto;background:#020617;
+padding:50px;border-radius:35px;border:1px solid #1e293b
+}
+form input,form select,form textarea{
+width:100%;padding:16px;margin-bottom:18px;
+border-radius:12px;border:none;background:#0f172a;
+color:white;font-size:16px
+}
+form button{
+width:100%;padding:20px;border:none;border-radius:45px;
+background:linear-gradient(135deg,#22c55e,#38bdf8);
+color:#020617;font-size:21px;font-weight:900;cursor:pointer
+}
+
+/* CTA */
+.sticky{
+position:fixed;bottom:20px;right:20px;
+background:linear-gradient(135deg,#22c55e,#38bdf8);
+color:#020617;padding:15px 28px;border-radius:40px;
+font-weight:900;cursor:pointer;z-index:999
+}
+
+footer{background:#020617;padding:35px;text-align:center;color:#94a3b8}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Professional ICT Training Programs</h1>
+<p>
+Online • Classroom • Doorstep • Kids Programming
+</p>
+<button onclick="goToRegister()">Enroll Now</button>
+</div>
+
+<!-- TRAINING OPTIONS -->
+<section>
+<div class="container">
+<h2>Our Training Models</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🏫</div>
+<h3>Classroom-Based Training</h3>
+<p>Structured physical classes with hands-on guidance and peer learning.</p>
+</div>
+
+<div class="card">
+<div class="icon">🏠</div>
+<h3>Doorstep Physical Training</h3>
+<p>Personalized ICT training at your home or office with flexible timing.</p>
+</div>
+
+<div class="card">
+<div class="icon">💻</div>
+<h3>Live Online Training</h3>
+<p>Real-time Zoom sessions with recordings and full support.</p>
+</div>
+
+<div class="card">
+<div class="icon">🧒</div>
+<h3>Kids Programming</h3>
+<p>Fun, interactive coding for children aged 7–17 to build logical skills.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- COURSES -->
+<section>
+<div class="container">
+<h2>Courses Offered</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Web Development</h3>
+<p>HTML, CSS, JavaScript, responsive layouts and portfolio projects.</p>
+</div>
+
+<div class="card">
+<h3>Python Programming</h3>
+<p>Fundamentals, automation, data handling and real projects.</p>
+</div>
+
+<div class="card">
+<h3>POS Systems Development</h3>
+<p>Business system design, inventory and reports integration.</p>
+</div>
+
+<div class="card">
+<h3>Computer Packages</h3>
+<p>MS Word, Excel, PowerPoint, email and typing skills.</p>
+</div>
+
+<div class="card">
+<h3>Database Fundamentals</h3>
+<p>MySQL basics, queries and system integration skills.</p>
+</div>
+
+<div class="card">
+<h3>ICT for Beginners</h3>
+<p>Digital literacy, computer basics and internet safety.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- TRAINING STRUCTURE -->
+<section>
+<div class="container">
+<h2>Our Training Approach</h2>
+
+<div class="grid">
+
+<div class="card">✔ Hands-on practical learning</div>
+<div class="card">✔ Beginner to advanced progress</div>
+<div class="card">✔ Duration: 3–12 weeks</div>
+<div class="card">✔ Real-life projects</div>
+<div class="card">✔ Continuous mentorship</div>
+<div class="card">✔ Professional certificate</div>
+
+</div>
+</div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="register">
+<div class="container">
+<h2>Student Registration</h2>
+
+<form 
+  action="https://script.google.com/macros/s/AKfycbyqUFuHZrQzNa-DLFwPkus3vE5_wAGX1pP0uyfTLj6-82OT4pg7Muuzh0R8wRHfYm7pVA/exec"
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="submitted=true; showSuccess();"
+>
+
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+<input type="email" name="email" placeholder="Email Address">
+
+<select name="mode" required>
+<option value="">Training Mode</option>
+<option>Classroom Training</option>
+<option>Online Training</option>
+<option>Doorstep Training</option>
+<option>Kids Programming</option>
+</select>
+
+<select name="course" required>
+<option value="">Select Course</option>
+<option>Computer Packages</option>
+<option>Web Development</option>
+<option>Python Programming</option>
+<option>POS Systems</option>
+<option>Kids Coding</option>
+</select>
+
+<textarea name="message" placeholder="Any additional information"></textarea>
+
+<button type="submit">Submit Registration</button>
+
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+</div>
+</section>
+
+<div class="sticky" onclick="goToRegister()">Enroll Now</div>
+
+<footer>
+© 2026 Minutevin Technologies • www.minutevintech.co.ke
+</footer>
+
+<script>
+function goToRegister(){
+  document.getElementById("register")
+    .scrollIntoView({behavior:"smooth"});
+}
+
+function showSuccess(){
+  setTimeout(() => {
+    alert("✅ Registration submitted successfully w'll get back to you as soon as possible!");
+    document.querySelector("form").reset();
+  }, 600);
+}
+</script>
+
+</body>
+</html>
