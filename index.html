@@ -506,6 +506,86 @@ white-space:pre;
 opacity:.9;
 text-shadow:0 0 12px rgba(56,189,248,.35);
 }
+/* ================= MOBILE RESPONSIVENESS ================= */
+@media (max-width: 768px) {
+
+  header{
+    padding:15px 20px;
+  }
+
+  .logo img{
+    height:36px;
+  }
+
+  .brand-name{
+    font-size:16px;
+  }
+
+  section{
+    padding:80px 20px;
+  }
+
+  .hero{
+    padding:140px 20px 80px;
+  }
+
+  .hero h1{
+    font-size:34px;
+    line-height:1.2;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  nav a{
+    margin-left:0;
+  }
+
+  /* STACK GRIDS */
+  .grid,
+  .neo-grid,
+  .footer-container{
+    grid-template-columns:1fr !important;
+  }
+
+  /* FIX FORMS */
+  .neo-form{
+    padding:35px 22px;
+  }
+
+  .neo-field input,
+  .neo-field select,
+  .neo-field textarea{
+    padding:16px;
+    font-size:14px;
+  }
+
+  /* FIX OVERLAPPING TEXT */
+  h2{
+    font-size:28px;
+  }
+
+  /* BUTTONS */
+  .btn,
+  .neo-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  /* FIX FLOATING MENU */
+  .nav-float{
+    width:48px;
+    height:48px;
+    font-size:22px;
+  }
+
+  /* FOOTER */
+  footer{
+    text-align:center;
+  }
+
+}
 
 </style>
 </head>
@@ -793,4 +873,5 @@ function handleSubmit() {
 </script>
 </body>
 </html>
+
 
