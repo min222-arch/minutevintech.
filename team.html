@@ -2,655 +2,1005 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Leadership Team | Minutevin Technologies</title>
+<title>Minutevin Technologies</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta name="description"
+content="Minutevin Technologies – Software Development, POS Systems, Cybersecurity, Cloud & Digital Solutions across Africa.">
+
+<link rel="icon" href="assets/favicon.png">
+
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI,sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#020617;color:white}
+
+/* ================= NAVBAR ================= */
+header{
+position:sticky;
+top:0;
+z-index:1000;
+padding:18px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(2,6,23,.95);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.06)
 }
 
-body{
-background:#020617;
-color:white;
-overflow-x:hidden;
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:45px}
+.logo span{
+font-size:22px;
+font-weight:700;
+background:linear-gradient(90deg,#38bdf8,#2563eb);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent
 }
 
-/* ================= PARTICLES ================= */
-
-#particles{
-position:fixed;
-inset:0;
-z-index:-5;
+nav a{
+margin-left:28px;
+color:#e5e7eb;
+text-decoration:none;
+position:relative
 }
 
-.particle{
+nav a::after{
+content:"";
 position:absolute;
-width:4px;
-height:4px;
-border-radius:50%;
+bottom:-6px;
+left:0;
+height:2px;
+width:0;
 background:#38bdf8;
-opacity:.3;
-animation:float linear infinite;
+transition:.3s
 }
+nav a:hover::after{width:100%}
 
-@keyframes float{
-from{transform:translateY(110vh)}
-to{transform:translateY(-20vh)}
-}
-
-/* ================= FLOATING ICON NAV ================= */
-
-.floating-nav{
-position:fixed;
-right:25px;
-top:50%;
-transform:translateY(-50%);
+/* ================= HERO ================= */
+.hero{
+min-height:100vh;
 display:flex;
 flex-direction:column;
-gap:15px;
-z-index:999;
-}
-
-.floating-nav a{
-width:48px;
-height:48px;
-border-radius:50%;
-background:#020617;
-border:1px solid #1e293b;
-display:flex;
 align-items:center;
 justify-content:center;
-color:#38bdf8;
-text-decoration:none;
-font-size:20px;
-transition:.3s;
-opacity:.7;
-}
-
-.floating-nav a:hover{
-background:#38bdf8;
-color:#020617;
-opacity:1;
-}
-
-/* ================= TEAM SECTION ================= */
-
-.team-section{
-max-width:1300px;
-margin:140px auto;
-padding:0 20px;
 text-align:center;
-opacity:0;
-transform:translateY(80px);
-transition:1.2s ease;
-}
-
-.team-section.show{
-opacity:1;
-transform:none;
-}
-
-.team-section h2{
-font-size:44px;
-margin-bottom:15px;
-background:linear-gradient(90deg,#38bdf8,#60a5fa);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.team-section p{
-color:#cbd5e1;
-max-width:900px;
-margin:0 auto 70px;
-font-size:18px;
-line-height:1.8;
-}
-
-/* ================= CAROUSEL ================= */
-
-.carousel{
 position:relative;
 overflow:hidden;
-padding:40px 0;
+padding:140px 20px;
 }
 
-.track{
-display:flex;
-gap:45px;
-transition:transform .9s cubic-bezier(.4,.0,.2,1);
+.hero-slider{
+position:absolute;
+inset:0;
+z-index:-2;
 }
 
-/* ================= CARD ================= */
-
-.card{
-min-width:330px;
-background:rgba(15,23,42,.88);
-border-radius:30px;
-padding:50px 35px;
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
-transform:scale(.85);
-opacity:.4;
-transition:.6s ease;
-position:relative;
+.hero-img{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transform:scale(1.1);
+transition:opacity 1.6s ease, transform 10s ease;
 }
 
-.card.active{
-transform:scale(1.05);
-opacity:1;
-box-shadow:0 70px 140px rgba(0,0,0,.9);
+.hero-img.active{
+opacity:.5;
+transform:scale(1);
 }
 
-/* parallax glow */
-.card::after{
+.hero::after{
 content:"";
 position:absolute;
 inset:0;
-border-radius:30px;
-background:linear-gradient(120deg,#38bdf8,#2563eb,#38bdf8);
-opacity:.05;
-pointer-events:none;
+background:linear-gradient(
+rgba(2,6,23,.65),
+rgba(2,6,23,.9)
+);
+z-index:-1;
 }
 
-/* ================= PHOTO ================= */
-
-.photo-ring{
-width:180px;
-height:180px;
-margin:0 auto 22px;
-border-radius:50%;
-padding:6px;
-background:linear-gradient(135deg,#38bdf8,#2563eb);
+.hero img{
+height:160px;
+margin-bottom:25px
 }
 
-.photo-ring img{
-width:100%;
-height:100%;
-border-radius:50%;
-object-fit:contain;
-background:#020617;
+.hero h1{font-size:56px;font-weight:800}
+.hero p{color:#cbd5f5;margin:20px 0 40px}
+
+.btn{
+padding:16px 42px;
+border-radius:40px;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+color:white;
+text-decoration:none;
+font-weight:600
 }
 
-/* ================= TEXT ================= */
+/* ================= ABOUT ================= */
+section{padding:110px 60px;text-align:center}
 
-.card h3{font-size:22px;margin-top:10px}
-.role{color:#38bdf8;font-weight:600;margin:8px 0}
-
-/* department tags */
-.tag{
-display:inline-block;
-padding:6px 14px;
-border-radius:20px;
-font-size:12px;
-font-weight:600;
-margin-bottom:15px;
+section h2{
+font-size:42px;
+margin-bottom:20px;
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent
 }
 
-.exec{background:#f59e0b33;color:#fbbf24}
-.tech{background:#2563eb33;color:#60a5fa}
-.ops{background:#22c55e33;color:#4ade80}
-
-/* ================= PROFILE ================= */
-
-.profile-btn{
-background:none;
-border:none;
-color:#38bdf8;
-font-weight:600;
-cursor:pointer;
-display:flex;
-align-items:center;
-gap:6px;
-margin:0 auto;
-}
-
-.profile-btn span{transition:.4s}
-
-.profile{
-max-height:0;
-overflow:hidden;
-opacity:0;
-transform:translateY(-10px);
-transition:.6s ease;
-}
-
-.profile.active{
-max-height:600px;
-opacity:1;
-transform:none;
-}
-
-.profile p{
-margin-top:18px;
-font-size:15px;
-line-height:1.9;
+.about-box{
+max-width:1100px;
+margin:50px auto 0;
+background:rgba(15,23,42,.85);
+padding:70px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+box-shadow:0 40px 90px rgba(0,0,0,.6);
 color:#cbd5e1;
+line-height:1.9;
+font-size:18px
 }
 
-/* ================= ARROWS ================= */
+/* ================= CONTACT ================= */
+.contact-form{
+max-width:900px;
+margin:60px auto 0;
+background:rgba(15,23,42,.9);
+padding:60px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+box-shadow:0 40px 80px rgba(0,0,0,.5);
+}
 
-.arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-width:55px;
-height:55px;
-border-radius:50%;
-background:#020617;
+.form-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-bottom:30px;
+}
+
+.input-box{
+display:flex;
+flex-direction:column;
+text-align:left;
+}
+
+.input-box label{
+font-size:14px;
+margin-bottom:8px;
+color:#94a3b8;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+padding:15px;
+border-radius:14px;
 border:1px solid #1e293b;
+background:#020617;
 color:white;
-font-size:24px;
-cursor:pointer;
-z-index:10;
-transition:.3s;
+font-size:15px;
+outline:none;
 }
 
-.arrow:hover{
-background:#38bdf8;
-color:#020617;
-}
-
-.prev{left:10px}
-.next{right:10px}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:700px){
-.card{min-width:280px}
-.team-section h2{font-size:34px}
-}
-/* ================= NAVBAR ================= */
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
+.submit-btn{
 width:100%;
-z-index:1000;
-background:rgba(2,6,23,.85);
-backdrop-filter:blur(24px);
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.nav-container{
-max-width:1300px;
-margin:auto;
-padding:14px 28px;
-display:flex;
-align-items:center;
-}
-
-/* brand */
-.brand{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.brand img{
-height:44px;
-width:auto;
-object-fit:contain;
-}
-
-.brand-text h1{
-font-size:19px;
-font-weight:700;
-margin:0;
-line-height:1.1;
+margin-top:15px;
+padding:18px;
+border:none;
+border-radius:40px;
+font-size:16px;
+font-weight:600;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
 color:white;
+cursor:pointer;
 }
 
-/* code tagline */
-.tagline{
-margin-top:4px;
-font-family:Consolas, Monaco, monospace;
-font-size:12px;
-line-height:1.4;
-color:#38bdf8;
-white-space:pre;
-text-shadow:0 0 12px rgba(56,189,248,.35);
-opacity:.95;
-}
-
-/* push page content down */
-.team-section{
-margin-top:200px;
-}
-
-/* mobile */
-@media(max-width:600px){
-.brand img{height:36px;}
-.brand-text h1{font-size:16px;}
-.tagline{font-size:10.5px;}
-}
 /* ================= FOOTER ================= */
-
-.footer{
-margin-top:160px;
-padding:80px 30px 30px;
-background:rgba(2,6,23,.95);
-border-top:1px solid rgba(255,255,255,.08);
+footer{
+background:linear-gradient(180deg,#020617,#020b2a);
+border-top:1px solid #1e293b;
+margin-top:120px;
 }
 
 .footer-container{
 max-width:1300px;
 margin:auto;
 display:grid;
-grid-template-columns:2fr 1fr 1fr;
-gap:60px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:50px;
+padding:70px 40px;
 }
 
-.footer-brand{
+.footer-box h4{color:#38bdf8;margin-bottom:15px}
+.footer-box p,
+.footer-box li{color:#cbd5e1;line-height:1.8;font-size:15px}
+.footer-box ul{list-style:none}
+.footer-box ul li{margin-bottom:10px}
+
+.footer-bottom{
+text-align:center;
+padding:25px;
+border-top:1px solid #1e293b;
+color:#94a3b8;
+font-size:14px
+}
+/* ================= UNIQUE CONTACT FORM ================= */
+
+.neo-form{
+max-width:920px;
+margin:0 auto;
+padding:70px;
+border-radius:40px;
+background:rgba(15,23,42,.75);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,.1);
+box-shadow:0 60px 120px rgba(0,0,0,.6);
+position:relative;
+overflow:hidden;
+}
+
+/* animated glow border */
+.neo-form::before{
+content:"";
+position:absolute;
+inset:-2px;
+background:linear-gradient(120deg,#38bdf8,#2563eb,#38bdf8);
+z-index:-1;
+filter:blur(25px);
+opacity:.4;
+animation:glow 6s linear infinite;
+}
+
+@keyframes glow{
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+}
+
+.neo-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+margin-bottom:40px;
+}
+
+.neo-field{
+position:relative;
+}
+
+.neo-field input,
+.neo-field select,
+.neo-field textarea{
+width:100%;
+padding:20px 18px;
+border-radius:16px;
+border:1px solid #1e293b;
+background:#020617;
+color:white;
+font-size:15px;
+outline:none;
+transition:.3s;
+}
+
+.neo-field textarea{resize:none}
+
+.neo-field label{
+position:absolute;
+left:18px;
+top:20px;
+color:#94a3b8;
+font-size:14px;
+pointer-events:none;
+transition:.3s;
+background:#020617;
+padding:0 6px;
+}
+
+/* floating label */
+.neo-field input:focus + label,
+.neo-field input:valid + label,
+.neo-field textarea:focus + label,
+.neo-field textarea:valid + label,
+.neo-field select:focus + label,
+.neo-field select:valid + label{
+top:-9px;
+font-size:12px;
+color:#38bdf8;
+}
+
+.neo-field input:focus,
+.neo-field textarea:focus,
+.neo-field select:focus{
+border-color:#38bdf8;
+box-shadow:0 0 0 2px rgba(56,189,248,.25);
+}
+
+.neo-btn{
+width:100%;
+padding:20px;
+border:none;
+border-radius:50px;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+color:white;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+transition:.4s;
+}
+
+.neo-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 25px 60px rgba(37,99,235,.6);
+}
+
+/* mobile */
+@media(max-width:700px){
+.neo-form{
+padding:40px 25px;
+}
+}
+/* ================= AUTO HIDE NAV ================= */
+
+.nav-float{
+position:fixed;
+top:25px;
+right:25px;
+width:55px;
+height:55px;
+border-radius:50%;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
 display:flex;
-gap:18px;
-align-items:flex-start;
+align-items:center;
+justify-content:center;
+font-size:26px;
+color:white;
+cursor:pointer;
+z-index:3000;
+opacity:0;
+pointer-events:none;
+transition:.4s;
+box-shadow:0 20px 40px rgba(37,99,235,.6);
 }
 
-.footer-brand img{
-height:46px;
-width:auto;
-object-fit:contain;
+/* visible icon */
+.nav-float.show{
+opacity:1;
+pointer-events:auto;
 }
 
-.footer-brand h3{
-margin:0 0 8px;
+/* slide menu */
+header.hidden{
+transform:translateY(-120%);
+transition:.5s ease;
+}
+/* ================= AUTO HIDE NAV ================= */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:2000;
+transition:.5s ease;
+}
+
+header.hidden{
+transform:translateY(-120%);
+}
+
+/* floating icon */
+.nav-float{
+position:fixed;
+top:25px;
+right:25px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:white;
+cursor:pointer;
+z-index:3000;
+opacity:0;
+pointer-events:none;
+transition:.4s;
+box-shadow:0 25px 60px rgba(37,99,235,.6);
+}
+
+/* show icon */
+.nav-float.show{
+opacity:1;
+pointer-events:auto;
+}
+
+/* icon animation */
+#menuIcon{
+transition:.4s;
+}
+
+/* glass mobile menu */
+.nav-links{
+display:flex;
+gap:28px;
+}
+
+@media(max-width:900px){
+
+.nav-links{
+position:fixed;
+top:0;
+right:-100%;
+height:100vh;
+width:280px;
+background:rgba(2,6,23,.92);
+backdrop-filter:blur(25px);
+flex-direction:column;
+padding:140px 40px;
+gap:30px;
+transition:.5s ease;
+border-left:1px solid rgba(255,255,255,.08);
+}
+
+.nav-links.open{
+right:0;
+}
+
+.nav-links a{
 font-size:20px;
-background:linear-gradient(90deg,#38bdf8,#60a5fa);
+}
+}
+/* ===== BRAND TEXT ===== */
+
+.brand-text{
+display:flex;
+flex-direction:column;
+line-height:1.2;
+}
+
+.brand-name{
+font-size:22px;
+font-weight:700;
+background:linear-gradient(90deg,#38bdf8,#2563eb);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.footer-tagline{
+/* code-style tagline */
+.brand-tagline{
+margin-top:4px;
 font-family:Consolas, Monaco, monospace;
 font-size:12px;
 line-height:1.45;
 color:#38bdf8;
 white-space:pre;
-opacity:.9;
+opacity:.95;
 text-shadow:0 0 12px rgba(56,189,248,.35);
 }
 
-.footer-col h4{
-margin-bottom:18px;
-font-size:16px;
-color:white;
+/* mobile */
+@media(max-width:700px){
+.brand-name{font-size:18px;}
+.brand-tagline{font-size:10.5px;}
+}
+/* ===== FOOTER BRAND ===== */
+
+.footer-brand img{
+object-fit:contain;
 }
 
-.footer-col ul{
-list-style:none;
-padding:0;
-margin:0;
+.footer-tagline{
+margin:12px 0 5px;
+font-family:Consolas, Monaco, monospace;
+font-size:12px;
+line-height:1.5;
+color:#38bdf8;
+white-space:pre;
+opacity:.9;
+text-shadow:0 0 12px rgba(56,189,248,.35);
+}
+/* ================= MOBILE RESPONSIVENESS ================= */
+@media (max-width: 768px) {
+
+  header{
+    padding:15px 20px;
+  }
+
+  .logo img{
+    height:36px;
+  }
+
+  .brand-name{
+    font-size:16px;
+  }
+
+  section{
+    padding:80px 20px;
+  }
+
+  .hero{
+    padding:140px 20px 80px;
+  }
+
+  .hero h1{
+    font-size:34px;
+    line-height:1.2;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  nav a{
+    margin-left:0;
+  }
+
+  /* STACK GRIDS */
+  .grid,
+  .neo-grid,
+  .footer-container{
+    grid-template-columns:1fr !important;
+  }
+
+  /* FIX FORMS */
+  .neo-form{
+    padding:35px 22px;
+  }
+
+  .neo-field input,
+  .neo-field select,
+  .neo-field textarea{
+    padding:16px;
+    font-size:14px;
+  }
+
+  /* FIX OVERLAPPING TEXT */
+  h2{
+    font-size:28px;
+  }
+
+  /* BUTTONS */
+  .btn,
+  .neo-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  /* FIX FLOATING MENU */
+  .nav-float{
+    width:48px;
+    height:48px;
+    font-size:22px;
+  }
+
+  /* FOOTER */
+  footer{
+    text-align:center;
+  }
+
+}
+/* ================= PARTNERS (WHITE LOGO CARDS) ================= */
+.partners{
+position:relative;
+overflow:hidden;
 }
 
-.footer-col li{
-margin-bottom:10px;
-font-size:15px;
-color:#cbd5e1;
+.partners-wrap{
+max-width:1250px;
+margin:70px auto 0;
+padding:80px 70px;
+border-radius:42px;
+background:rgba(15,23,42,.9);
+backdrop-filter:blur(22px);
+border:1px solid rgba(255,255,255,.1);
+box-shadow:0 55px 130px rgba(0,0,0,.65);
 }
 
-.footer-bottom{
-margin-top:60px;
-padding-top:25px;
-text-align:center;
-font-size:14px;
-color:#94a3b8;
-border-top:1px solid rgba(255,255,255,.06);
+.partners-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:55px;
+align-items:center;
 }
 
-/* responsive */
-@media(max-width:900px){
-.footer-container{
-grid-template-columns:1fr;
-gap:45px;
-}
+/* WHITE CARD */
+.partner-card{
+height:150px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:26px;
+background:#ffffff;
+border:1px solid rgba(255,255,255,.35);
+transition:.45s ease;
+position:relative;
+overflow:hidden;
+box-shadow:
+0 15px 35px rgba(0,0,0,.35),
+inset 0 0 0 1px rgba(255,255,255,.4);
 }
 
+/* soft tech glow */
+.partner-card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(120deg,rgba(56,189,248,.25),rgba(37,99,235,.25));
+opacity:.12;
+transition:.4s;
+}
+
+.partner-card:hover::before{
+opacity:.2;
+}
+
+.partner-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 40px 90px rgba(37,99,235,.45);
+}
+
+/* LOGOS – HIGH VISIBILITY */
+.partner-card img{
+max-width:170px;
+max-height:90px;
+object-fit:contain;
+filter:none;
+transition:.35s ease;
+z-index:2;
+}
+
+/* subtle hover zoom */
+.partner-card:hover img{
+transform:scale(1.08);
+}
+
+/* ambient background */
+.partners::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 25% 30%,rgba(56,189,248,.12),transparent 45%),
+radial-gradient(circle at 75% 70%,rgba(37,99,235,.16),transparent 50%);
+z-index:-1;
+}
+
+/* mobile */
+@media(max-width:768px){
+.partners-wrap{
+padding:55px 30px;
+}
+.partners-grid{
+gap:35px;
+}
+.partner-card{
+height:130px;
+}
+.partner-card img{
+max-width:145px;
+max-height:80px;
+}
+}
 </style>
 </head>
 
 <body>
-<header class="navbar">
-  <div class="nav-container">
 
-    <div class="brand">
-      <img src="updated__minutevin_logo_-removebg-preview.png" alt="Minutevin Technologies Logo">
+<header id="mainHeader">
+ <div class="logo">
+  <img src="updated__minutevin_logo_-removebg-preview.png">
 
-      <div class="brand-text">
-        <h1>Minutevin Technologies</h1>
+  <div class="brand-text">
+    <span class="brand-name">Minutevin Technologies</span>
 
-        <pre class="tagline">
+    <pre class="brand-tagline">
 if success() == true:
     celebrate()
 else:
     try_again()  // be_awesome
-        </pre>
-      </div>
-    </div>
-
+    </pre>
   </div>
+</div>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="#contact">Contact</a>
+   <a href="train.html">Ict Training</a>
+        <a href="team.html">Team</a>
+  </nav>
 </header>
 
-<!-- PARTICLES -->
-<div id="particles"></div>
-
-<!-- FLOATING ICON NAV -->
-<div class="floating-nav">
-<a href="#team">👥</a>
-<a href="#contact">✉️</a>
-<a href="#">⬆</a>
+<!-- floating tech icon -->
+<div class="nav-float" id="navFloat">
+  <span id="menuIcon">☰</span>
 </div>
 
-<section class="team-section" id="team">
-
-<h2>Leadership Team</h2>
-<p>
-Our leadership team brings together innovation, engineering excellence
-and strategic vision to deliver world-class digital solutions.
-</p>
-
-<div class="carousel">
-
-<button class="arrow prev">‹</button>
-<button class="arrow next">›</button>
-
-<div class="track">
-
-<!-- CEO -->
-<div class="card">
-<div class="photo-ring">
-<img src="yugi.jpeg">
+<!-- floating menu icon -->
+<div class="nav-float" id="navFloat">
+  ☰
 </div>
-<h3>Vincent Oyugi</h3>
-<div class="role">Chief Executive Officer</div>
-<div class="tag exec">Executive</div>
+<!-- HERO -->
+<section class="hero" id="home">
 
-<button class="profile-btn">View Profile <span>▾</span></button>
-<div class="profile">
-<p>
-Founder and CEO of Minutevin Technologies. Leads enterprise systems,
-cloud infrastructure, cybersecurity strategy and digital transformation
-initiatives across Africa and beyond.
-</p>
-</div>
+<div class="hero-slider">
+  <img src="https://images.unsplash.com/photo-1526378722484-dcfc64e1cdd6?auto=format&fit=crop&w=1600&q=80" class="hero-img active">
+  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80" class="hero-img">
+  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" class="hero-img">
 </div>
 
-<!-- TECH -->
-<div class="card">
-<div class="photo-ring">
-<img src="https://i.pinimg.com/736x/5e/87/00/5e8700424201eb225c9a7dea4c3ec7f4.jpg">
-</div>
-<h3>Technical Director</h3>
-<div class="role">Technology & Infrastructure</div>
-<div class="tag tech">Technology</div>
+<img src="updated__minutevin_logo_-removebg-preview.png">
+<h1>Innovative Technology. Digital Excellence.</h1>
+<p>Software • Cybersecurity • Cloud • Digital Transformation</p>
+<a href="#contact" class="btn">Get Started</a>
 
-<button class="profile-btn">View Profile <span>▾</span></button>
-<div class="profile">
-<p>
-Oversees platform architecture, cybersecurity frameworks,
-software engineering standards and cloud deployments.
-</p>
-</div>
-</div>
+</section>
 
-<!-- OPS -->
-<div class="card">
-<div class="photo-ring">
-<img src="https://i.pinimg.com/736x/1c/9b/95/1c9b956d8b7763ceb1b09306f63efcdf.jpg">
-</div>
-<h3>Operations Manager</h3>
-<div class="role">Business Operations</div>
-<div class="tag ops">Operations</div>
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
 
-<button class="profile-btn">View Profile <span>▾</span></button>
-<div class="profile">
-<p>
-Manages daily operations, service delivery, internal coordination,
-customer success and performance optimization.
-</p>
-</div>
-</div>
+<div class="about-box">
+Minutevin Technologies is a forward-thinking digital solutions company
+delivering secure, scalable and innovative technology services.
 
-</div>
+We specialize in software development, cybersecurity solutions,
+cloud infrastructure, POS systems and enterprise digital transformation.
+
+Our mission is to empower businesses across Africa and beyond through
+cutting-edge technology and trusted partnerships.
 </div>
 </section>
-<footer class="footer">
 
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+
+<h2>Start Your Project</h2>
+<p style="margin-bottom:60px;color:#cbd5e1">
+Let’s build something powerful together.
+</p>
+
+<form
+  action="https://script.google.com/macros/s/AKfycbyqUFuHZrQzNa-DLFwPkus3vE5_wAGX1pP0uyfTLj6-82OT4pg7Muuzh0R8wRHfYm7pVA/exec"
+  method="POST"
+  target="hidden_iframe"
+  class="neo-form"
+  onsubmit="return handleSubmit();"
+>
+
+<input type="hidden" name="_captcha" value="false">
+
+<div class="neo-grid">
+
+  <div class="neo-field">
+    <input type="text" name="name" required>
+    <label>Full Name</label>
+  </div>
+
+  <div class="neo-field">
+    <input type="email" name="email" required>
+    <label>Email Address</label>
+  </div>
+
+  <div class="neo-field">
+    <input type="text" name="phone">
+    <label>Phone Number</label>
+  </div>
+
+  <div class="neo-field">
+    <select name="service" required>
+      <option value=""></option>
+      <option>Software Development</option>
+      <option>Mobile Applications</option>
+      <option>POS Systems</option>
+      <option>Cybersecurity</option>
+      <option>Cloud Solutions</option>
+      <option>Digital Marketing</option>
+      <option>Graphic Design</option>
+    </select>
+    <label>Service Required</label>
+  </div>
+
+</div>
+
+<div class="neo-field full">
+  <textarea rows="6" name="message" required></textarea>
+  <label>Project Description</label>
+</div>
+
+<button type="submit" class="neo-btn">
+  Send Message 🚀
+</button>
+
+</form>
+<div id="successMsg" style="
+display:none;
+margin-top:25px;
+padding:18px;
+border-radius:14px;
+background:rgba(34,197,94,.15);
+color:#22c55e;
+font-weight:600;
+text-align:center;
+border:1px solid rgba(34,197,94,.4);
+">
+✅ Submitted successfully!
+</div>
+<!-- ================= PARTNERS ================= -->
+<section class="partners" id="partners">
+  <h2>Our Trusted Partners</h2>
+
+  <p style="color:#cbd5e1;max-width:720px;margin:20px auto 0">
+    We collaborate with industry-leading organizations and technology providers
+    to deliver reliable, secure and future-ready solutions.
+  </p>
+
+  <div class="partners-wrap">
+    <div class="partners-grid">
+
+      <div class="partner-card">
+        <img src="moringa-school-logo-EE6600130E-seeklogo.com-removebg-preview.png" alt="Moringa School">
+      </div>
+
+      <div class="partner-card">
+        <img src="DESIGNS_BY_TOACOPY_final_page-0001-removebg-preview.png" alt="Partner Two">
+      </div>
+
+      <div class="partner-card">
+        <img src="kimemia-removebg-preview.png" alt="Partner Three">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+</section>
+<footer>
   <div class="footer-container">
 
     <!-- BRAND -->
-    <div class="footer-brand">
-      <img src="updated__minutevin_logo_-removebg-preview.png">
+    <div class="footer-box footer-brand">
+      <img src="updated__minutevin_logo_-removebg-preview.png"
+           style="height:48px;margin-bottom:15px;">
 
-      <div>
-        <h3>Minutevin Technologies</h3>
+      <h4>Minutevin Technologies</h4>
 
-        <pre class="footer-tagline">
-if success() == true:
-    celebrate()
-else:
-    try_again()  // be_awesome
-        </pre>
+      <div class="footer-tagline">
+        if success() == true:<br>
+        &nbsp;&nbsp;celebrate()<br>
+        else:<br>
+        &nbsp;&nbsp;try_again() // be_awesome
       </div>
+
+      <p style="margin-top:15px">
+        Delivering secure, scalable and innovative digital solutions
+        across Africa and beyond.
+      </p>
     </div>
 
-    <!-- LINKS -->
-    <div class="footer-col">
-      <h4>Core Services</h4>
+    <!-- SERVICES -->
+    <div class="footer-box">
+      <h4>Services</h4>
       <ul>
         <li>Software Development</li>
-        <li>Mobile Applications</li>
         <li>POS Systems</li>
-        <li>Cloud Solutions</li>
         <li>Cybersecurity</li>
+        <li>Cloud Infrastructure</li>
+        <li>Digital Marketing</li>
       </ul>
     </div>
 
     <!-- CONTACT -->
-    <div class="footer-col">
+    <div class="footer-box">
       <h4>Contact</h4>
-      <ul>
-        <li>📍 Nairobi, Kenya</li>
-        <li>📞 +254 792474356</li>
-        <li>✉ oyugi@minutevintech.co.ke</li>
-      </ul>
+      <p>📞 +254 792474356</p>
+      <p>✉ oyugi@minutevintech.co.ke</p>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    © 2026 Minutevin Technologies. All rights reserved.
+    © 2026 Minutevin Technologies. All Rights Reserved.
   </div>
-
 </footer>
 
+
+
+
 <script>
-/* PARTICLES */
-const pBox=document.getElementById("particles");
-for(let i=0;i<90;i++){
-const p=document.createElement("div");
-p.className="particle";
-p.style.left=Math.random()*100+"%";
-p.style.animationDuration=10+Math.random()*20+"s";
-p.style.animationDelay=Math.random()*20+"s";
-pBox.appendChild(p);
-}
+/* HERO IMAGE ROTATION */
+const heroImages = document.querySelectorAll(".hero-img");
+let heroIndex = 0;
 
-/* CAROUSEL */
-const track=document.querySelector(".track");
-let cards=[...document.querySelectorAll(".card")];
-const prev=document.querySelector(".prev");
-const next=document.querySelector(".next");
+setInterval(() => {
+  heroImages[heroIndex].classList.remove("active");
+  heroIndex = (heroIndex + 1) % heroImages.length;
+  heroImages[heroIndex].classList.add("active");
+}, 5000);
+let lastScroll = 0;
 
-let index=1;
-let width;
+const header = document.getElementById("mainHeader");
+const floatBtn = document.getElementById("navFloat");
+const navLinks = document.getElementById("navLinks");
+const menuIcon = document.getElementById("menuIcon");
 
-track.prepend(cards[cards.length-1].cloneNode(true));
-track.append(cards[0].cloneNode(true));
-cards=[...document.querySelectorAll(".card")];
+/* auto hide on scroll */
+window.addEventListener("scroll", () => {
+  const current = window.pageYOffset;
 
-function setup(){
-width=cards[0].offsetWidth+45;
-track.style.transform=`translateX(-${width*index}px)`;
-activate();
-}
-window.addEventListener("resize",setup);
+  if (current > lastScroll && current > 120) {
+    header.classList.add("hidden");
+    floatBtn.classList.add("show");
+  } else {
+    header.classList.remove("hidden");
+    floatBtn.classList.remove("show");
+  }
 
-function activate(){
-cards.forEach(c=>c.classList.remove("active"));
-cards[index].classList.add("active");
-}
-
-next.onclick=()=>{index++;move();}
-prev.onclick=()=>{index--;move();}
-
-function move(){
-track.style.transform=`translateX(-${width*index}px)`;
-activate();
-}
-
-track.addEventListener("transitionend",()=>{
-if(index===cards.length-1){
-track.style.transition="none";
-index=1;move();track.offsetHeight;
-track.style.transition="";
-}
-if(index===0){
-track.style.transition="none";
-index=cards.length-2;move();track.offsetHeight;
-track.style.transition="";
-}
+  lastScroll = current;
 });
 
-/* AUTO SLIDE */
-setInterval(()=>{index++;move();},7000);
+/* toggle menu */
+floatBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
 
-/* PROFILE TOGGLE */
-document.querySelectorAll(".profile-btn").forEach(btn=>{
-btn.onclick=()=>{
-const p=btn.nextElementSibling;
-p.classList.toggle("active");
-btn.querySelector("span").style.transform=
-p.classList.contains("active")?"rotate(180deg)":"rotate(0)";
-};
+  if (navLinks.classList.contains("open")) {
+    menuIcon.innerHTML = "✕";
+    menuIcon.style.transform = "rotate(180deg)";
+  } else {
+    menuIcon.innerHTML = "☰";
+    menuIcon.style.transform = "rotate(0deg)";
+  }
 });
 
-/* SCROLL REVEAL */
-const section=document.querySelector(".team-section");
-window.addEventListener("scroll",()=>{
-if(section.getBoundingClientRect().top < window.innerHeight-120){
-section.classList.add("show");
+/* close menu on link click */
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    navLinks.classList.remove("open");
+    menuIcon.innerHTML = "☰";
+  });
+});
+
+/* swipe close support */
+let startX = 0;
+
+document.addEventListener("touchstart", e=>{
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchmove", e=>{
+  let moveX = e.touches[0].clientX;
+
+  if(startX - moveX > 80){
+    navLinks.classList.remove("open");
+    menuIcon.innerHTML = "☰";
+  }
+});
+function handleSubmit() {
+
+    const msg = document.getElementById("successMsg");
+
+    msg.style.display = "block";
+    msg.innerHTML = "✅ Submitted successfully!";
+
+    setTimeout(() => {
+        msg.style.display = "none";
+        document.querySelector(".neo-form").reset();
+    }, 4000);
+
+    return true; // allow Google Sheets submission
 }
-});
-
-setup();
 </script>
-
 </body>
 </html>
+
 
 
