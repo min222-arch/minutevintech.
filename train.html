@@ -75,6 +75,35 @@ background:linear-gradient(135deg,#22c55e,#38bdf8);
 color:#020617;padding:15px 28px;border-radius:40px;
 font-weight:900;cursor:pointer;z-index:999
 }
+<style>
+/* Toast styles */
+.toast {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg,#22c55e,#38bdf8);
+  color: #020617;
+  padding: 18px 28px;
+  border-radius: 50px;
+  font-weight:600;
+  font-size:15px;
+  box-shadow: 0 20px 60px rgba(56,189,248,.5);
+  z-index: 5000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+.toast::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(120deg,#38bdf8,#22c55e,#38bdf8);
+  filter: blur(25px);
+  border-radius:50px;
+  z-index:-1;
+  opacity:0.4;
+}
 
 footer{background:#020617;padding:35px;text-align:center;color:#94a3b8}
 </style>
@@ -187,47 +216,50 @@ Online • Classroom • Doorstep • Kids Programming
 
 <!-- REGISTRATION -->
 <section id="register">
-<div class="container">
-<h2>Student Registration</h2>
+  <div class="container">
+    <h2>Student Registration</h2>
 
-<form 
-  action="https://script.google.com/macros/s/AKfycbyqUFuHZrQzNa-DLFwPkus3vE5_wAGX1pP0uyfTLj6-82OT4pg7Muuzh0R8wRHfYm7pVA/exec"
-  method="POST"
-  target="hidden_iframe"
-  onsubmit="submitted=true; showSuccess();"
->
+    <form 
+      id="registrationForm"
+      action="https://script.google.com/macros/s/AKfycbyqUFuHZrQzNa-DLFwPkus3vE5_wAGX1pP0uyfTLj6-82OT4pg7Muuzh0R8wRHfYm7pVA/exec"
+      method="POST"
+      target="hidden_iframe"
+    >
 
-<input type="text" name="name" placeholder="Full Name" required>
-<input type="tel" name="phone" placeholder="Phone Number" required>
-<input type="email" name="email" placeholder="Email Address">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="email" name="email" placeholder="Email Address">
 
-<select name="mode" required>
-<option value="">Training Mode</option>
-<option>Classroom Training</option>
-<option>Online Training</option>
-<option>Doorstep Training</option>
-<option>Kids Programming</option>
-</select>
+      <select name="mode" required>
+        <option value="">Training Mode</option>
+        <option>Classroom Training</option>
+        <option>Online Training</option>
+        <option>Doorstep Training</option>
+        <option>Kids Programming</option>
+      </select>
 
-<select name="course" required>
-<option value="">Select Course</option>
-<option>Computer Packages</option>
-<option>Web Development</option>
-<option>Python Programming</option>
-<option>POS Systems</option>
-<option>Kids Coding</option>
-</select>
+      <select name="course" required>
+        <option value="">Select Course</option>
+        <option>Computer Packages</option>
+        <option>Web Development</option>
+        <option>Python Programming</option>
+        <option>POS Systems</option>
+        <option>Kids Coding</option>
+      </select>
 
-<textarea name="message" placeholder="Any additional information"></textarea>
+      <textarea name="message" placeholder="Any additional information"></textarea>
 
-<button type="submit">Submit Registration</button>
+      <button type="submit">Submit Registration</button>
+    </form>
 
-</form>
+    <!-- Glowing Toast Notification -->
+    <div id="toast" class="toast">✅ Registration submitted successfully! We'll get back to you soon.</div>
 
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-
-</div>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+  </div>
 </section>
+
+
 
 <div class="sticky" onclick="goToRegister()">Enroll Now</div>
 
@@ -236,17 +268,34 @@ Online • Classroom • Doorstep • Kids Programming
 </footer>
 
 <script>
-function goToRegister(){
-  document.getElementById("register")
-    .scrollIntoView({behavior:"smooth"});
-}
+const regForm = document.getElementById("registrationForm");
+const toast = document.getElementById("toast");
 
-function showSuccess(){
-  setTimeout(() => {
-    alert("✅ Registration submitted successfully w'll get back to you as soon as possible!");
-    document.querySelector("form").reset();
-  }, 600);
-}
+regForm.addEventListener("submit", function(e){
+  e.preventDefault(); // prevent page reload
+
+  // Show toast
+  toast.style.top = "30px";
+  toast.style.opacity = "1";
+  toast.style.pointerEvents = "auto";
+
+  // Animate glow slightly
+  toast.style.boxShadow = "0 25px 80px rgba(37,99,235,.8)";
+
+  // Reset form
+  regForm.reset();
+
+  // Hide toast after 4 seconds
+  setTimeout(()=>{
+    toast.style.top = "-100px";
+    toast.style.opacity = "0";
+    toast.style.pointerEvents = "none";
+  },4000);
+
+  // Submit form to Google Sheets in background
+  const iframe = document.querySelector('iframe[name="hidden_iframe"]');
+  regForm.submit();
+});
 </script>
 
 </body>
