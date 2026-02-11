@@ -639,17 +639,41 @@ box-shadow:0 40px 90px rgba(0,0,0,.6);
 }
 
 /* MOBILE */
-@media(max-width:900px){
-.about-clean-wrap{
-grid-template-columns:1fr;
+/* ABOUT FEATURE / CARDS MOBILE FIX */
+@media (max-width:900px){
+  .about-features {
+    grid-template-columns: 1fr !important; /* stack vertically */
+    gap: 20px; /* less gap on small screens */
+  }
+
+  .about-feature {
+    padding: 20px; /* reduce padding */
+    font-size: 14px; /* slightly smaller text */
+  }
+
+  .about-feature span {
+    font-size: 24px; /* adjust icon size */
+  }
+
+  .about-feature h4 {
+    font-size: 15px;
+  }
+
+  .about-feature p {
+    font-size: 13px;
+  }
 }
-.about-text{
-padding:40px 28px;
+
+/* For even smaller phones */
+@media (max-width:500px){
+  .about-feature {
+    padding: 16px;
+  }
+  .about-feature span { font-size: 20px; }
+  .about-feature h4 { font-size: 14px; }
+  .about-feature p { font-size: 12px; }
 }
-.about-points{
-grid-template-columns:1fr;
-}
-}
+
 /* ================= SCROLL ANIMATIONS ================= */
 
 .reveal-left,
@@ -679,6 +703,18 @@ transform:translate(0,0);
 }
 
 /* stagger delay handled by JS */
+/* GENERAL GRID CARD MOBILE ADJUST */
+@media (max-width:700px){
+  .grid, .neo-grid {
+    grid-template-columns: 1fr !important; /* single column */
+    gap: 18px;
+  }
+
+  .card, .neo-field, .neo-form {
+    width: 100%;
+    padding: 20px;
+  }
+}
 
 </style>
 </head>
