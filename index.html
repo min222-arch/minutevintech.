@@ -715,6 +715,163 @@ transform:translate(0,0);
     padding: 20px;
   }
 }
+/* ================= MV CONTACT SECTION ================= */
+.mv-contact-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mv-contact-form-wrapper,
+.mv-contact-info-wrapper {
+  flex: 1 1 400px;
+  min-width: 300px;
+}
+
+/* CONTACT INFO BOXES */
+.mv-contact-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mv-contact-info {
+  background: rgba(15,23,42,0.85);
+  padding: 25px 20px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,.4);
+}
+
+/* FORM */
+.mv-contact-form {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 40px;
+  background: rgba(15,23,42,.75);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 60px 120px rgba(0,0,0,.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.mv-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.mv-contact-field {
+  position: relative;
+}
+
+.mv-contact-field input,
+.mv-contact-field select,
+.mv-contact-field textarea {
+  width: 100%;
+  padding: 20px 18px;
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: .3s;
+}
+
+.mv-contact-field textarea { resize: none; }
+
+.mv-contact-field label {
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  color: #94a3b8;
+  font-size: 14px;
+  pointer-events: none;
+  transition: .3s;
+  background: #020617;
+  padding: 0 6px;
+}
+
+/* floating label */
+.mv-contact-field input:focus + label,
+.mv-contact-field input:valid + label,
+.mv-contact-field textarea:focus + label,
+.mv-contact-field textarea:valid + label,
+.mv-contact-field select:focus + label,
+.mv-contact-field select:valid + label {
+  top: -9px;
+  font-size: 12px;
+  color: #38bdf8;
+}
+
+.mv-contact-field input:focus,
+.mv-contact-field textarea:focus,
+.mv-contact-field select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56,189,248,.25);
+}
+
+.mv-contact-field-full {
+  margin-top: 20px;
+}
+
+.mv-contact-btn {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg,#2563eb,#38bdf8);
+  transition: .4s;
+}
+
+.mv-contact-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px rgba(37,99,235,.6);
+}
+
+/* SUCCESS MESSAGE */
+#mv-contact-successMsg {
+  display: none;
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(34,197,94,.15);
+  color: #22c55e;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(34,197,94,.4);
+}
+
+/* MOBILE */
+@media (max-width:700px) {
+  .mv-contact-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding-bottom: 15px;
+  }
+  .mv-contact-form-wrapper,
+  .mv-contact-info-wrapper {
+    flex: 0 0 300px;
+    min-width: 300px;
+  }
+  .mv-contact-info-wrapper {
+    flex-direction: row;
+  }
+  .mv-contact-info {
+    flex: 0 0 260px;
+  }
+}
 
 </style>
 </head>
@@ -809,66 +966,67 @@ else:
 
 
 <!-- ================= CONTACT ================= -->
-<section id="contact">
+<!-- ================= CONTACT / PROJECT ================= -->
+<section id="mv-contact-section">
+  <h2>Start Your Project</h2>
+  <p style="margin-bottom:60px;color:#cbd5e1">
+    Let’s build something powerful together.
+  </p>
 
-<h2>Start Your Project</h2>
-<p style="margin-bottom:60px;color:#cbd5e1">
-Let’s build something powerful together.
-</p>
+  <div class="mv-contact-wrapper">
+    <!-- FORM -->
+    <div class="mv-contact-form-wrapper">
+      <form
+        action="https://script.google.com/macros/s/AKfycbyqUFuHZrQzNa-DLFwPkus3vE5_wAGX1pP0uyfTLj6-82OT4pg7Muuzh0R8wRHfYm7pVA/exec"
+        method="POST"
+        target="hidden_iframe"
+        class="mv-contact-form"
+        onsubmit="return handleMvContactSubmit();"
+      >
+        <input type="hidden" name="_captcha" value="false">
+        <div class="mv-contact-grid">
+          <div class="mv-contact-field">
+            <input type="text" name="name" required>
+            <label>Full Name</label>
+          </div>
 
-<form
-  action="https://script.google.com/macros/s/AKfycbyqUFuHZrQzNa-DLFwPkus3vE5_wAGX1pP0uyfTLj6-82OT4pg7Muuzh0R8wRHfYm7pVA/exec"
-  method="POST"
-  target="hidden_iframe"
-  class="neo-form"
-  onsubmit="return handleSubmit();"
->
+          <div class="mv-contact-field">
+            <input type="email" name="email" required>
+            <label>Email Address</label>
+          </div>
 
-<input type="hidden" name="_captcha" value="false">
+          <div class="mv-contact-field">
+            <input type="text" name="phone">
+            <label>Phone Number</label>
+          </div>
 
-<div class="neo-grid">
+          <div class="mv-contact-field">
+            <select name="service" required>
+              <option value=""></option>
+              <option>Software Development</option>
+              <option>Mobile Applications</option>
+              <option>POS Systems</option>
+              <option>Cybersecurity</option>
+              <option>Cloud Solutions</option>
+              <option>Digital Marketing</option>
+              <option>Graphic Design</option>
+            </select>
+            <label>Service Required</label>
+          </div>
+        </div>
 
-  <div class="neo-field">
-    <input type="text" name="name" required>
-    <label>Full Name</label>
-  </div>
 
-  <div class="neo-field">
-    <input type="email" name="email" required>
-    <label>Email Address</label>
-  </div>
+        <button type="submit" class="mv-contact-btn">Send Message 🚀</button>
+      </form>
+    </div>
+    
+    </div>
 
-  <div class="neo-field">
-    <input type="text" name="phone">
-    <label>Phone Number</label>
-  </div>
 
-  <div class="neo-field">
-    <select name="service" required>
-      <option value=""></option>
-      <option>Software Development</option>
-      <option>Mobile Applications</option>
-      <option>POS Systems</option>
-      <option>Cybersecurity</option>
-      <option>Cloud Solutions</option>
-      <option>Digital Marketing</option>
-      <option>Graphic Design</option>
-    </select>
-    <label>Service Required</label>
-  </div>
+  <div id="mv-contact-successMsg"></div>
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+</section>
 
-</div>
-
-<div class="neo-field full">
-  <textarea rows="6" name="message" required></textarea>
-  <label>Project Description</label>
-</div>
-
-<button type="submit" class="neo-btn">
-  Send Message 🚀
-</button>
-
-</form>
 <div id="successMsg" style="
 display:none;
 margin-top:25px;
@@ -1039,8 +1197,20 @@ reveals.forEach((el,i)=>{
   }
   observer.observe(el);
 });
-</script>
+function handleMvContactSubmit() {
+    const msg = document.getElementById("mv-contact-successMsg");
+    msg.style.display = "block";
+    msg.innerHTML = "✅ Submitted successfully!";
+
+    setTimeout(() => {
+        msg.style.display = "none";
+        document.querySelector(".mv-contact-form").reset();
+    }, 4000);
+
+    return true; // allow Google Sheets submission
+}
 
 </script>
+
 </body>
 </html>
