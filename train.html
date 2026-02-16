@@ -75,7 +75,7 @@ background:linear-gradient(135deg,#22c55e,#38bdf8);
 color:#020617;padding:15px 28px;border-radius:40px;
 font-weight:900;cursor:pointer;z-index:999
 }
-<style>
+
 /* Toast styles */
 .toast {
   position: fixed;
@@ -268,33 +268,31 @@ Online • Classroom • Doorstep • Kids Programming
 </footer>
 
 <script>
+
 const regForm = document.getElementById("registrationForm");
 const toast = document.getElementById("toast");
 
 regForm.addEventListener("submit", function(e){
-  e.preventDefault(); // prevent page reload
+  e.preventDefault();
 
-  // Show toast
+  // show toast
   toast.style.top = "30px";
   toast.style.opacity = "1";
   toast.style.pointerEvents = "auto";
-
-  // Animate glow slightly
   toast.style.boxShadow = "0 25px 80px rgba(37,99,235,.8)";
 
-  // Reset form
-  regForm.reset();
+  // submit form to Google Sheet after small delay
+  setTimeout(()=>{
+      regForm.submit();
+      regForm.reset();
+  },700);
 
-  // Hide toast after 4 seconds
+  // hide toast
   setTimeout(()=>{
     toast.style.top = "-100px";
     toast.style.opacity = "0";
     toast.style.pointerEvents = "none";
-  },4000);
-
-  // Submit form to Google Sheets in background
-  const iframe = document.querySelector('iframe[name="hidden_iframe"]');
-  regForm.submit();
+  },4500);
 });
 </script>
 
