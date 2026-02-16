@@ -132,7 +132,19 @@ background:linear-gradient(90deg,#38bdf8,#60a5fa);
 -webkit-text-fill-color:transparent
 }
 
-
+.about-box{
+max-width:1100px;
+margin:50px auto 0;
+background:rgba(15,23,42,.85);
+padding:70px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+box-shadow:0 40px 90px rgba(0,0,0,.6);
+color:#cbd5e1;
+line-height:1.9;
+font-size:18px
+}
 
 /* ================= CONTACT ================= */
 .contact-form{
@@ -472,99 +484,6 @@ white-space:pre;
 opacity:.95;
 text-shadow:0 0 12px rgba(56,189,248,.35);
 }
-/* ================= NEO ABOUT ================= */
-.about-neo{
-position:relative;
-}
-
-.about-neo-wrap{
-max-width:1400px;
-margin:70px auto 0;
-display:grid;
-grid-template-columns:1fr 2fr 1fr;
-gap:50px;
-align-items:center;
-}
-
-.about-side img{
-width:100%;
-border-radius:28px;
-box-shadow:0 40px 90px rgba(0,0,0,.65);
-opacity:.9;
-transition:.5s ease;
-}
-
-.about-side img:hover{
-transform:scale(1.04);
-opacity:1;
-}
-
-.about-neo-content{
-background:rgba(15,23,42,.85);
-padding:65px;
-border-radius:38px;
-border:1px solid rgba(255,255,255,.1);
-backdrop-filter:blur(22px);
-box-shadow:0 55px 130px rgba(0,0,0,.7);
-color:#cbd5e1;
-}
-
-.about-intro{
-font-size:19px;
-margin-bottom:18px;
-color:#e5e7eb;
-}
-
-.about-features{
-margin-top:45px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:28px;
-}
-
-.about-feature{
-background:rgba(2,6,23,.8);
-padding:26px;
-border-radius:22px;
-border:1px solid rgba(255,255,255,.06);
-transition:.4s ease;
-}
-
-.about-feature:hover{
-transform:translateY(-8px);
-box-shadow:0 25px 60px rgba(56,189,248,.35);
-}
-
-.about-feature span{
-font-size:28px;
-display:block;
-margin-bottom:10px;
-}
-
-.about-feature h4{
-margin-bottom:6px;
-color:#38bdf8;
-font-size:16px;
-}
-
-.about-feature p{
-font-size:14px;
-line-height:1.6;
-color:#cbd5e1;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-.about-neo-wrap{
-grid-template-columns:1fr;
-}
-.about-side{
-display:none;
-}
-.about-neo-content{
-padding:45px 28px;
-}
-}
 
 /* mobile */
 @media(max-width:700px){
@@ -587,292 +506,188 @@ white-space:pre;
 opacity:.9;
 text-shadow:0 0 12px rgba(56,189,248,.35);
 }
-/* ================= CLEAN ABOUT ================= */
+/* ================= MOBILE RESPONSIVENESS ================= */
+@media (max-width: 768px) {
 
-.about-clean{
-padding:110px 60px;
+  header{
+    padding:15px 20px;
+  }
+
+  .logo img{
+    height:36px;
+  }
+
+  .brand-name{
+    font-size:16px;
+  }
+
+  section{
+    padding:80px 20px;
+  }
+
+  .hero{
+    padding:140px 20px 80px;
+  }
+
+  .hero h1{
+    font-size:34px;
+    line-height:1.2;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  nav a{
+    margin-left:0;
+  }
+
+  /* STACK GRIDS */
+  .grid,
+  .neo-grid,
+  .footer-container{
+    grid-template-columns:1fr !important;
+  }
+
+  /* FIX FORMS */
+  .neo-form{
+    padding:35px 22px;
+  }
+
+  .neo-field input,
+  .neo-field select,
+  .neo-field textarea{
+    padding:16px;
+    font-size:14px;
+  }
+
+  /* FIX OVERLAPPING TEXT */
+  h2{
+    font-size:28px;
+  }
+
+  /* BUTTONS */
+  .btn,
+  .neo-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  /* FIX FLOATING MENU */
+  .nav-float{
+    width:48px;
+    height:48px;
+    font-size:22px;
+  }
+
+  /* FOOTER */
+  footer{
+    text-align:center;
+  }
+
+}
+/* ================= PARTNERS (WHITE LOGO CARDS) ================= */
+.partners{
+position:relative;
+overflow:hidden;
 }
 
-.about-clean-wrap{
-max-width:1200px;
-margin:60px auto 0;
+.partners-wrap{
+max-width:1250px;
+margin:70px auto 0;
+padding:80px 70px;
+border-radius:42px;
+background:rgba(15,23,42,.9);
+backdrop-filter:blur(22px);
+border:1px solid rgba(255,255,255,.1);
+box-shadow:0 55px 130px rgba(0,0,0,.65);
+}
+
+.partners-grid{
 display:grid;
-grid-template-columns:1.2fr 1fr;
-gap:60px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:55px;
 align-items:center;
 }
 
-.about-text{
-background:rgba(15,23,42,.85);
-padding:55px;
-border-radius:32px;
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
-box-shadow:0 45px 110px rgba(0,0,0,.65);
-text-align:left;
+/* WHITE CARD */
+.partner-card{
+height:150px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:26px;
+background:#ffffff;
+border:1px solid rgba(255,255,255,.35);
+transition:.45s ease;
+position:relative;
+overflow:hidden;
+box-shadow:
+0 15px 35px rgba(0,0,0,.35),
+inset 0 0 0 1px rgba(255,255,255,.4);
 }
 
-.about-lead{
-font-size:20px;
-color:#e5e7eb;
-margin-bottom:18px;
+/* soft tech glow */
+.partner-card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(120deg,rgba(56,189,248,.25),rgba(37,99,235,.25));
+opacity:.12;
+transition:.4s;
 }
 
-.about-text p{
-color:#cbd5e1;
-line-height:1.8;
-margin-bottom:25px;
+.partner-card:hover::before{
+opacity:.2;
 }
 
-.about-points{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-font-size:15px;
-color:#94a3b8;
+.partner-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 40px 90px rgba(37,99,235,.45);
 }
 
-.about-image img{
-width:100%;
-border-radius:30px;
-box-shadow:0 40px 90px rgba(0,0,0,.6);
+/* LOGOS – HIGH VISIBILITY */
+.partner-card img{
+max-width:170px;
+max-height:90px;
+object-fit:contain;
+filter:none;
+transition:.35s ease;
+z-index:2;
 }
 
-/* MOBILE */
-/* ABOUT FEATURE / CARDS MOBILE FIX */
-@media (max-width:900px){
-  .about-features {
-    grid-template-columns: 1fr !important; /* stack vertically */
-    gap: 20px; /* less gap on small screens */
-  }
-
-  .about-feature {
-    padding: 20px; /* reduce padding */
-    font-size: 14px; /* slightly smaller text */
-  }
-
-  .about-feature span {
-    font-size: 24px; /* adjust icon size */
-  }
-
-  .about-feature h4 {
-    font-size: 15px;
-  }
-
-  .about-feature p {
-    font-size: 13px;
-  }
+/* subtle hover zoom */
+.partner-card:hover img{
+transform:scale(1.08);
 }
 
-/* For even smaller phones */
-@media (max-width:500px){
-  .about-feature {
-    padding: 16px;
-  }
-  .about-feature span { font-size: 20px; }
-  .about-feature h4 { font-size: 14px; }
-  .about-feature p { font-size: 12px; }
+/* ambient background */
+.partners::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 25% 30%,rgba(56,189,248,.12),transparent 45%),
+radial-gradient(circle at 75% 70%,rgba(37,99,235,.16),transparent 50%);
+z-index:-1;
 }
 
-/* ================= SCROLL ANIMATIONS ================= */
-
-.reveal-left,
-.reveal-right,
-.reveal-up,
-.reveal-stagger{
-opacity:0;
-transform:translateY(40px);
-transition:all .9s ease;
+/* mobile */
+@media(max-width:768px){
+.partners-wrap{
+padding:55px 30px;
 }
-
-.reveal-left{
-transform:translateX(-60px);
+.partners-grid{
+gap:35px;
 }
-
-.reveal-right{
-transform:translateX(60px);
+.partner-card{
+height:130px;
 }
-
-.reveal-up{
-transform:translateY(60px);
+.partner-card img{
+max-width:145px;
+max-height:80px;
 }
-
-.reveal-active{
-opacity:1;
-transform:translate(0,0);
 }
-
-/* stagger delay handled by JS */
-/* GENERAL GRID CARD MOBILE ADJUST */
-@media (max-width:700px){
-  .grid, .neo-grid {
-    grid-template-columns: 1fr !important; /* single column */
-    gap: 18px;
-  }
-
-  .card, .neo-field, .neo-form {
-    width: 100%;
-    padding: 20px;
-  }
-}
-/* ================= MV CONTACT SECTION ================= */
-.mv-contact-wrapper {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.mv-contact-form-wrapper,
-.mv-contact-info-wrapper {
-  flex: 1 1 400px;
-  min-width: 300px;
-}
-
-/* CONTACT INFO BOXES */
-.mv-contact-info-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.mv-contact-info {
-  background: rgba(15,23,42,0.85);
-  padding: 25px 20px;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.08);
-  text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,.4);
-}
-
-/* FORM */
-.mv-contact-form {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 40px;
-  background: rgba(15,23,42,.75);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255,255,255,.1);
-  box-shadow: 0 60px 120px rgba(0,0,0,.6);
-  position: relative;
-  overflow: hidden;
-}
-
-.mv-contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-.mv-contact-field {
-  position: relative;
-}
-
-.mv-contact-field input,
-.mv-contact-field select,
-.mv-contact-field textarea {
-  width: 100%;
-  padding: 20px 18px;
-  border-radius: 16px;
-  border: 1px solid #1e293b;
-  background: #020617;
-  color: white;
-  font-size: 15px;
-  outline: none;
-  transition: .3s;
-}
-
-.mv-contact-field textarea { resize: none; }
-
-.mv-contact-field label {
-  position: absolute;
-  left: 18px;
-  top: 20px;
-  color: #94a3b8;
-  font-size: 14px;
-  pointer-events: none;
-  transition: .3s;
-  background: #020617;
-  padding: 0 6px;
-}
-
-/* floating label */
-.mv-contact-field input:focus + label,
-.mv-contact-field input:valid + label,
-.mv-contact-field textarea:focus + label,
-.mv-contact-field textarea:valid + label,
-.mv-contact-field select:focus + label,
-.mv-contact-field select:valid + label {
-  top: -9px;
-  font-size: 12px;
-  color: #38bdf8;
-}
-
-.mv-contact-field input:focus,
-.mv-contact-field textarea:focus,
-.mv-contact-field select:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 2px rgba(56,189,248,.25);
-}
-
-.mv-contact-field-full {
-  margin-top: 20px;
-}
-
-.mv-contact-btn {
-  width: 100%;
-  padding: 20px;
-  border: none;
-  border-radius: 50px;
-  font-size: 17px;
-  font-weight: 700;
-  cursor: pointer;
-  color: white;
-  background: linear-gradient(135deg,#2563eb,#38bdf8);
-  transition: .4s;
-}
-
-.mv-contact-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 60px rgba(37,99,235,.6);
-}
-
-/* SUCCESS MESSAGE */
-#mv-contact-successMsg {
-  display: none;
-  margin-top: 25px;
-  padding: 18px;
-  border-radius: 14px;
-  background: rgba(34,197,94,.15);
-  color: #22c55e;
-  font-weight: 600;
-  text-align: center;
-  border: 1px solid rgba(34,197,94,.4);
-}
-
-/* MOBILE */
-@media (max-width:700px) {
-  .mv-contact-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    gap: 20px;
-    padding-bottom: 15px;
-  }
-  .mv-contact-form-wrapper,
-  .mv-contact-info-wrapper {
-    flex: 0 0 300px;
-    min-width: 300px;
-  }
-  .mv-contact-info-wrapper {
-    flex-direction: row;
-  }
-  .mv-contact-info {
-    flex: 0 0 260px;
-  }
-}
-
 </style>
 </head>
 
@@ -899,8 +714,8 @@ else:
     <a href="#about">About</a>
     <a href="services.html">Services</a>
     <a href="#contact">Contact</a>
+   <a href="train.html">Ict Training</a>
         <a href="team.html">Team</a>
-        <a href="train.html">Ict Training</a>
   </nav>
 </header>
 
@@ -910,7 +725,9 @@ else:
 </div>
 
 <!-- floating menu icon -->
-
+<div class="nav-float" id="navFloat">
+  ☰
+</div>
 <!-- HERO -->
 <section class="hero" id="home">
 
@@ -927,106 +744,83 @@ else:
 
 </section>
 
-<section id="about" class="about-clean">
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
 
-  <h2 class="reveal-up">About Minutevin Technologies</h2>
+<div class="about-box">
+Minutevin Technologies is a forward-thinking digital solutions company
+delivering secure, scalable and innovative technology services.
 
-  <div class="about-clean-wrap">
+We specialize in software development, cybersecurity solutions,
+cloud infrastructure, POS systems and enterprise digital transformation.
 
-    <!-- TEXT -->
-    <div class="about-text reveal-left">
-      <div class="about-glow"></div>
-      <p class="about-lead">
-        Minutevin Technologies is a modern digital solutions company
-        focused on building secure, scalable, and future-ready systems.
-      </p>
-
-      <p>
-        We help organizations across Africa leverage technology through
-        <strong>custom software</strong>, <strong>POS systems</strong>,
-        <strong>cybersecurity</strong>, and <strong>cloud solutions</strong>.
-      </p>
-
-      <div class="about-points">
-        <div class="reveal-stagger">✔ Secure-by-design systems</div>
-        <div class="reveal-stagger">✔ Enterprise-grade architecture</div>
-        <div class="reveal-stagger">✔ Scalable & cloud-ready solutions</div>
-        <div class="reveal-stagger">✔ Reliable technical support</div>
-      </div>
-    </div>
-
-    <!-- IMAGE -->
-    <div class="about-image reveal-right">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80">
-    </div>
-
-  </div>
-
+Our mission is to empower businesses across Africa and beyond through
+cutting-edge technology and trusted partnerships.
+</div>
 </section>
-
 
 <!-- ================= CONTACT ================= -->
-<!-- ================= CONTACT / PROJECT ================= -->
-<section id="mv-contact-section">
-  <h2>Start Your Project</h2>
-  <p style="margin-bottom:60px;color:#cbd5e1">
-    Let’s build something powerful together.
-  </p>
+<section id="contact">
 
-  <div class="mv-contact-wrapper">
-    <!-- FORM -->
-    <div class="mv-contact-form-wrapper">
-      <form
-        action="https://script.google.com/macros/s/AKfycbyqUFuHZrQzNa-DLFwPkus3vE5_wAGX1pP0uyfTLj6-82OT4pg7Muuzh0R8wRHfYm7pVA/exec"
-        method="POST"
-        target="hidden_iframe"
-        class="mv-contact-form"
-        onsubmit="return handleMvContactSubmit();"
-      >
-        <input type="hidden" name="_captcha" value="false">
-        <div class="mv-contact-grid">
-          <div class="mv-contact-field">
-            <input type="text" name="name" required>
-            <label>Full Name</label>
-          </div>
+<h2>Start Your Project</h2>
+<p style="margin-bottom:60px;color:#cbd5e1">
+Let’s build something powerful together.
+</p>
 
-          <div class="mv-contact-field">
-            <input type="email" name="email" required>
-            <label>Email Address</label>
-          </div>
+<form
+  action="https://script.google.com/macros/s/AKfycbyqUFuHZrQzNa-DLFwPkus3vE5_wAGX1pP0uyfTLj6-82OT4pg7Muuzh0R8wRHfYm7pVA/exec"
+  method="POST"
+  target="hidden_iframe"
+  class="neo-form"
+  onsubmit="return handleSubmit();"
+>
 
-          <div class="mv-contact-field">
-            <input type="text" name="phone">
-            <label>Phone Number</label>
-          </div>
+<input type="hidden" name="_captcha" value="false">
 
-          <div class="mv-contact-field">
-            <select name="service" required>
-              <option value=""></option>
-              <option>Software Development</option>
-              <option>Mobile Applications</option>
-              <option>POS Systems</option>
-              <option>Cybersecurity</option>
-              <option>Cloud Solutions</option>
-              <option>Digital Marketing</option>
-              <option>Graphic Design</option>
-            </select>
-            <label>Service Required</label>
-          </div>
-        </div>
+<div class="neo-grid">
 
+  <div class="neo-field">
+    <input type="text" name="name" required>
+    <label>Full Name</label>
+  </div>
 
-        <button type="submit" class="mv-contact-btn">Send Message 🚀</button>
-      </form>
-    </div>
-    
-    </div>
+  <div class="neo-field">
+    <input type="email" name="email" required>
+    <label>Email Address</label>
+  </div>
 
+  <div class="neo-field">
+    <input type="text" name="phone">
+    <label>Phone Number</label>
+  </div>
 
-  <div id="mv-contact-successMsg"></div>
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
-</section>
+  <div class="neo-field">
+    <select name="service" required>
+      <option value=""></option>
+      <option>Software Development</option>
+      <option>Mobile Applications</option>
+      <option>POS Systems</option>
+      <option>Cybersecurity</option>
+      <option>Cloud Solutions</option>
+      <option>Digital Marketing</option>
+      <option>Graphic Design</option>
+    </select>
+    <label>Service Required</label>
+  </div>
 
+</div>
+
+<div class="neo-field full">
+  <textarea rows="6" name="message" required></textarea>
+  <label>Project Description</label>
+</div>
+
+<button type="submit" class="neo-btn">
+  Send Message 🚀
+</button>
+
+</form>
 <div id="successMsg" style="
 display:none;
 margin-top:25px;
@@ -1040,6 +834,33 @@ border:1px solid rgba(34,197,94,.4);
 ">
 ✅ Submitted successfully!
 </div>
+<!-- ================= PARTNERS ================= -->
+<section class="partners" id="partners">
+  <h2>Our Trusted Partners</h2>
+
+  <p style="color:#cbd5e1;max-width:720px;margin:20px auto 0">
+    We collaborate with industry-leading organizations and technology providers
+    to deliver reliable, secure and future-ready solutions.
+  </p>
+
+  <div class="partners-wrap">
+    <div class="partners-grid">
+
+      <div class="partner-card">
+        <img src="moringa-school-logo-EE6600130E-seeklogo.com-removebg-preview.png" alt="Moringa School">
+      </div>
+
+      <div class="partner-card">
+        <img src="DESIGNS_BY_TOACOPY_final_page-0001-removebg-preview.png" alt="Partner Two">
+      </div>
+
+      <div class="partner-card">
+        <img src="kimemia-removebg-preview.png" alt="Partner Three">
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <iframe name="hidden_iframe" style="display:none;"></iframe>
 </section>
@@ -1082,7 +903,7 @@ border:1px solid rgba(34,197,94,.4);
     <div class="footer-box">
       <h4>Contact</h4>
       <p>📞 +254 792474356</p>
-      <p>✉ info@minutevintech.co.ke</p>
+      <p>✉ oyugi@minutevintech.co.ke</p>
     </div>
 
   </div>
@@ -1177,40 +998,9 @@ function handleSubmit() {
 
     return true; // allow Google Sheets submission
 }
-
-const reveals = document.querySelectorAll(
-  '.reveal-left, .reveal-right, .reveal-up, .reveal-stagger'
-);
-
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach((entry)=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('reveal-active');
-      observer.unobserve(entry.target);
-    }
-  });
-},{ threshold:0.15 });
-
-reveals.forEach((el,i)=>{
-  if(el.classList.contains('reveal-stagger')){
-    el.style.transitionDelay = `${i * 0.12}s`;
-  }
-  observer.observe(el);
-});
-function handleMvContactSubmit() {
-    const msg = document.getElementById("mv-contact-successMsg");
-    msg.style.display = "block";
-    msg.innerHTML = "✅ Submitted successfully!";
-
-    setTimeout(() => {
-        msg.style.display = "none";
-        document.querySelector(".mv-contact-form").reset();
-    }, 4000);
-
-    return true; // allow Google Sheets submission
-}
-
 </script>
-
 </body>
 </html>
+
+
+
