@@ -369,10 +369,6 @@ box-shadow:0 20px 40px rgba(37,99,235,.6);
 }
 
 /* visible icon */
-.nav-float.show{
-opacity:1;
-pointer-events:auto;
-}
 
 /* slide menu */
 header.hidden{
@@ -381,17 +377,6 @@ transition:.5s ease;
 }
 /* ================= AUTO HIDE NAV ================= */
 
-header{
-position:fixed;
-top:0;
-width:100%;
-z-index:2000;
-transition:.5s ease;
-}
-
-header.hidden{
-transform:translateY(-120%);
-}
 
 /* floating icon */
 .nav-float{
@@ -688,6 +673,633 @@ max-width:145px;
 max-height:80px;
 }
 }
+/* ================= TRUST BADGES ================= */
+
+.trust-badge{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin-top:35px;
+}
+
+.trust-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 22px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50px;
+    backdrop-filter:blur(12px);
+    color:#e2e8f0;
+    font-size:15px;
+    font-weight:500;
+    transition:.35s ease;
+}
+
+.trust-item:hover{
+    transform:translateY(-4px);
+    border-color:#38bdf8;
+    box-shadow:0 15px 35px rgba(56,189,248,.25);
+}
+
+.check{
+    color:#22c55e;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.stars{
+    color:#fbbf24;
+    font-size:18px;
+    letter-spacing:2px;
+}
+@media(max-width:768px){
+
+    .trust-badge{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .trust-item{
+        width:100%;
+        justify-content:center;
+        text-align:center;
+    }
+
+}
+/*================ ABOUT =================*/
+
+.about{
+    padding:100px 7%;
+    background:linear-gradient(180deg,#020617,#07132b);
+}
+
+.wrap{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.tag{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:30px;
+    background:#10345e;
+    color:#38bdf8;
+    font-weight:700;
+}
+
+h1{
+    font-size:50px;
+    line-height:1.15;
+    margin:18px 0;
+}
+
+h1 span{
+    color:#38bdf8;
+}
+
+p{
+    color:#cbd5e1;
+    line-height:1.9;
+    margin:18px 0;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.buttons{
+    display:flex;
+    gap:18px;
+    margin-top:25px;
+}
+
+.btn{
+    padding:15px 30px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.4s;
+}
+
+.primary{
+    background:#2563eb;
+    color:#fff;
+}
+
+.primary:hover{
+    background:#1d4ed8;
+}
+
+.secondary{
+    border:2px solid #38bdf8;
+    color:#fff;
+}
+
+.secondary:hover{
+    background:#38bdf8;
+}
+
+/* ===========================
+   IMAGE SLIDER
+=========================== */
+
+.slider{
+    position:relative;
+    height:560px;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:1s;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    animation:zoom 10s linear infinite alternate;
+}
+
+@keyframes zoom{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.12);
+    }
+
+}
+
+.overlay{
+    position:absolute;
+    left:25px;
+    bottom:25px;
+    background:rgba(15,23,42,.78);
+    backdrop-filter:blur(14px);
+    padding:18px 20px;
+    border-radius:18px;
+}
+
+/* ===========================
+   FLOATING BADGES
+=========================== */
+
+.badge{
+    position:absolute;
+    padding:10px 16px;
+    background:#2563eb;
+    border-radius:30px;
+    font-size:13px;
+}
+
+.b1{
+    top:20px;
+    right:20px;
+}
+
+.b2{
+    top:90px;
+    left:20px;
+}
+
+.b3{
+    bottom:120px;
+    right:20px;
+}
+
+/* ===========================
+   DOTS
+=========================== */
+
+.dots{
+    position:absolute;
+    bottom:18px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#ffffff60;
+}
+
+.dot.active{
+    background:#38bdf8;
+}
+
+/* ===========================
+   STATS
+=========================== */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-top:70px;
+}
+
+.card{
+    background:#0f172acc;
+    padding:28px;
+    border-radius:18px;
+    text-align:center;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    color:#38bdf8;
+    font-size:40px;
+}
+
+/* ===========================
+   WHY
+=========================== */
+
+.why{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:70px;
+}
+
+.why div{
+    background:#0f172acc;
+    padding:25px;
+    border-radius:18px;
+    transition:.4s;
+}
+
+.why div:hover{
+    transform:translateY(-8px);
+}
+
+/* ===========================
+   TIMELINE
+=========================== */
+
+.timeline{
+    margin-top:70px;
+    border-left:3px solid #38bdf8;
+    padding-left:25px;
+}
+
+.timeline article{
+    margin:30px 0;
+    position:relative;
+}
+
+.timeline article::before{
+    content:"";
+    position:absolute;
+    left:-35px;
+    top:5px;
+    width:16px;
+    height:16px;
+    background:#38bdf8;
+    border-radius:50%;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.wrap{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.why{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:36px;
+}
+
+.slider{
+height:360px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.why{
+grid-template-columns:1fr;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+}
+/*================ WHY CHOOSE US ================*/
+
+/*================ WHY CHOOSE US ================*/
+
+.why{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:28px;
+    margin-top:70px;
+}
+
+.why-card{
+    background:rgba(15,23,42,.88);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    overflow:hidden;
+    transition:.4s ease;
+    backdrop-filter:blur(18px);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 35px 80px rgba(37,99,235,.30);
+}
+
+.why-header{
+    padding:28px 28px 12px;
+}
+
+.why-header h3{
+    margin:0;
+    color:#fff;
+    font-size:24px;
+}
+
+.learn-btn{
+    margin:0 28px 25px;
+    padding:12px 24px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    color:white;
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    transition:.35s;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+}
+
+.learn-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(37,99,235,.4);
+}
+
+.learn-btn .arrow{
+    transition:.4s;
+}
+
+.learn-btn.active .arrow{
+    transform:rotate(180deg);
+}
+
+.why-content{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    padding:0 28px;
+    transition:
+        max-height .6s ease,
+        opacity .4s ease,
+        padding .4s ease;
+}
+
+.why-card.active .why-content{
+    max-height:900px;
+    opacity:1;
+    padding:0 28px 28px;
+}
+
+.why-content p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+.why-content ul{
+    margin-top:18px;
+    padding-left:20px;
+}
+
+.why-content li{
+    color:#cbd5e1;
+    margin-bottom:10px;
+    line-height:1.8;
+}
+/*================ COMPANY JOURNEY =================*/
+
+.journey{
+margin-top:120px;
+text-align:center;
+}
+
+.journey h2{
+font-size:42px;
+margin-bottom:15px;
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.journey-intro{
+max-width:760px;
+margin:0 auto 70px;
+color:#cbd5e1;
+line-height:1.9;
+font-size:17px;
+}
+
+.journey-line{
+
+position:relative;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:35px;
+
+}
+
+.journey-line::before{
+
+content:"";
+
+position:absolute;
+
+top:55px;
+
+left:5%;
+
+width:90%;
+
+height:4px;
+
+background:linear-gradient(90deg,#2563eb,#38bdf8);
+
+z-index:0;
+
+}
+
+.journey-card{
+
+position:relative;
+
+z-index:2;
+
+background:rgba(15,23,42,.92);
+
+padding:35px;
+
+border-radius:28px;
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+transition:.45s;
+
+}
+
+.journey-card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 35px 80px rgba(37,99,235,.35);
+
+}
+
+.journey-icon{
+
+width:80px;
+
+height:80px;
+
+margin:0 auto 20px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:34px;
+
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+
+box-shadow:0 0 40px rgba(56,189,248,.45);
+
+animation:floatIcon 5s ease-in-out infinite;
+
+}
+
+@keyframes floatIcon{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+.journey-year{
+
+display:inline-block;
+
+padding:8px 18px;
+
+margin-bottom:18px;
+
+border-radius:30px;
+
+background:rgba(56,189,248,.15);
+
+color:#38bdf8;
+
+font-weight:700;
+
+font-size:14px;
+
+}
+
+.journey-card h3{
+
+margin-bottom:15px;
+
+font-size:24px;
+
+color:white;
+
+}
+
+.journey-card p{
+
+color:#cbd5e1;
+
+line-height:1.8;
+
+font-size:15px;
+
+}
+
+@media(max-width:900px){
+
+.journey-line::before{
+
+display:none;
+
+}
+
+}
 </style>
 </head>
 
@@ -701,32 +1313,20 @@ max-height:80px;
     <span class="brand-name">Minutevin Technologies</span>
 
     <pre class="brand-tagline">
-if success() == true:
-    celebrate()
-else:
-    try_again()  // be_awesome
+Engineering The Future.
     </pre>
   </div>
 </div>
-
   <nav class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
-    <a href="#about">About</a>
-    <a href="services.html">Services</a>
+    <a href="solutions.html">Solutions</a>
     <a href="#contact">Contact</a>
-   <a href="train.html">Ict Training</a>
+   <a href="train.html">Training</a>
         <a href="team.html">Team</a>
   </nav>
 </header>
-
-<!-- floating tech icon -->
 <div class="nav-float" id="navFloat">
-  <span id="menuIcon">☰</span>
-</div>
-
-<!-- floating menu icon -->
-<div class="nav-float" id="navFloat">
-  ☰
+    <span id="menuIcon">☰</span>
 </div>
 <!-- HERO -->
 <section class="hero" id="home">
@@ -738,26 +1338,353 @@ else:
 </div>
 
 <img src="updated__minutevin_logo_-removebg-preview.png">
-<h1>Innovative Technology. Digital Excellence.</h1>
-<p>Software • Cybersecurity • Cloud • Digital Transformation</p>
-<a href="#contact" class="btn">Get Started</a>
+<h1>Engineering
+Africa's
+Digital Future</h1>
+<p>We build secure software,
+intelligent cloud solutions,
+modern websites,
+mobile applications
+and enterprise systems.</p>
+<a href="#contact" class="btn">Start Your Project</a>
 
 </section>
+<!-- TRUST BADGES -->
+<div class="trust-badge">
+    <div class="trust-item">
+        <span class="check">✓</span>
+        <span>Trusted by Businesses Across Kenya</span>
+    </div>
 
-<!-- ABOUT -->
-<section id="about">
-<h2>About Us</h2>
-
-<div class="about-box">
-Minutevin Technologies is a forward-thinking digital solutions company
-delivering secure, scalable and innovative technology services.
-
-We specialize in software development, cybersecurity solutions,
-cloud infrastructure, POS systems and enterprise digital transformation.
-
-Our mission is to empower businesses across Africa and beyond through
-cutting-edge technology and trusted partnerships.
+    <div class="trust-item">
+        <span class="stars">★★★★★</span>
+        <span>Professional IT Solutions</span>
+    </div>
 </div>
+<section class="about">
+<div class="wrap">
+<div>
+<span class="tag">WHO WE ARE</span>
+<h1>Engineering <span>Africa's Digital Future</span></h1>
+<p>Minutevin Technologies delivers enterprise software, cloud infrastructure, cybersecurity, AI solutions and digital transformation services that help organisations innovate and grow.</p>
+<p>We combine technical excellence with strategic thinking to build secure, scalable and modern solutions for businesses across Africa.</p>
+<div class="buttons">
+<a class="btn primary" href="#contact">Start Project</a>
+<a class="btn secondary" href="solutions.html">Our Solutions</a>
+</div>
+</div>
+
+<div class="slider">
+<div class="slide active">
+<img src="OYUGI LAPY.jpeg ">
+<div class="overlay"><h3>Software Engineering</h3><p>Modern web & enterprise systems.</p></div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80">
+<div class="overlay"><h3>Cloud Infrastructure</h3><p>Secure & scalable cloud solutions.</p></div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
+<div class="overlay"><h3>Cybersecurity</h3><p>Protecting critical business systems.</p></div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1526378722484-dcfc64e1cdd6?auto=format&fit=crop&w=1200&q=80">
+<div class="overlay"><h3>Innovation</h3><p>Engineering tomorrow's technology.</p></div>
+</div>
+<div class="badge b1">Software</div>
+<div class="badge b2">Cloud</div>
+<div class="badge b3">Cybersecurity</div>
+<div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+</div>
+</div>
+
+<div class="stats">
+
+    <div class="card">
+        <h2 class="counter" data-target="50">0</h2>
+        <p>Projects Delivered</p>
+    </div>
+
+    <div class="card">
+        <h2 class="counter" data-target="20">0</h2>
+        <p>Technology Solutions</p>
+    </div>
+
+    <div class="card">
+        <h2 class="counter" data-target="15">0</h2>
+        <p>Industries Served</p>
+    </div>
+
+    <div class="card">
+        <h2>24/7</h2>
+        <p>Technical Support</p>
+    </div>
+
+</div>
+<div class="why">
+
+    <!-- ================= Custom Software ================= -->
+    <div class="why-card">
+
+        <div class="why-header">
+            <h3>💻 Custom Software Development</h3>
+            <p class="why-summary">
+                Tailor-made business applications designed around your organization's workflow.
+            </p>
+        </div>
+
+        <button class="learn-btn">
+            Learn More
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="why-content">
+
+            <p>
+                Every business has unique processes. We design and develop custom
+                software that automates operations, increases productivity and
+                supports long-term business growth.
+            </p>
+
+            <ul>
+                <li>✔ Enterprise Resource Planning (ERP)</li>
+                <li>✔ Customer Relationship Management (CRM)</li>
+                <li>✔ School Management Systems</li>
+                <li>✔ Hospital Management Systems</li>
+                <li>✔ HR & Payroll Systems</li>
+                <li>✔ Inventory Management</li>
+                <li>✔ Point of Sale (POS)</li>
+                <li>✔ Business Process Automation</li>
+                <li>✔ API Integrations</li>
+                <li>✔ Custom Dashboards & Reports</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Cloud ================= -->
+
+    <div class="why-card">
+
+        <div class="why-header">
+            <h3>☁ Cloud Solutions</h3>
+            <p class="why-summary">
+                Secure cloud infrastructure, hosting and digital transformation services.
+            </p>
+        </div>
+
+        <button class="learn-btn">
+            Learn More
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="why-content">
+
+            <p>
+                We help organizations modernize their infrastructure through secure,
+                scalable cloud technologies that improve availability, security and
+                business continuity.
+            </p>
+
+            <ul>
+                <li>✔ AWS Cloud</li>
+                <li>✔ Microsoft Azure</li>
+                <li>✔ Google Cloud Platform</li>
+                <li>✔ Cloud Migration</li>
+                <li>✔ Cloud Backup</li>
+                <li>✔ Disaster Recovery</li>
+                <li>✔ Microsoft 365</li>
+                <li>✔ Google Workspace</li>
+                <li>✔ Virtual Servers</li>
+                <li>✔ Cloud Security</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Cybersecurity ================= -->
+
+    <div class="why-card">
+
+        <div class="why-header">
+            <h3>🔐 Cybersecurity</h3>
+
+            <p class="why-summary">
+                Protect your organization against evolving cyber threats.
+            </p>
+
+        </div>
+
+        <button class="learn-btn">
+            Learn More
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="why-content">
+
+            <p>
+                Our cybersecurity services protect your networks, systems and
+                sensitive business information through proactive monitoring,
+                prevention and rapid response.
+            </p>
+
+            <ul>
+                <li>✔ Security Audits</li>
+                <li>✔ Vulnerability Assessments</li>
+                <li>✔ Penetration Testing</li>
+                <li>✔ Firewall Configuration</li>
+                <li>✔ Endpoint Protection</li>
+                <li>✔ Email Security</li>
+                <li>✔ Security Awareness Training</li>
+                <li>✔ Incident Response</li>
+                <li>✔ Network Monitoring</li>
+                <li>✔ Data Protection</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Partnership ================= -->
+
+    <div class="why-card">
+
+        <div class="why-header">
+            <h3>🤝 Long-Term Partnership</h3>
+
+            <p class="why-summary">
+                We remain your trusted technology partner long after deployment.
+            </p>
+
+        </div>
+
+        <button class="learn-btn">
+            Learn More
+            <span class="arrow">▼</span>
+        </button>
+
+        <div class="why-content">
+
+            <p>
+                Technology continues to evolve, and so do your business needs.
+                We provide continuous support to ensure your systems remain secure,
+                reliable and aligned with your growth.
+            </p>
+
+            <ul>
+                <li>✔ 24/7 Technical Support</li>
+                <li>✔ Preventive Maintenance</li>
+                <li>✔ Regular Software Updates</li>
+                <li>✔ Performance Monitoring</li>
+                <li>✔ Staff Training</li>
+                <li>✔ System Optimization</li>
+                <li>✔ Business Consultation</li>
+                <li>✔ Dedicated Support Team</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<section class="journey">
+
+<h2>Our Journey</h2>
+
+<p class="journey-intro">
+Every milestone reflects our commitment to innovation, growth and delivering
+technology solutions that empower businesses across Africa.
+</p>
+
+<div class="journey-line">
+
+<div class="journey-card">
+
+<div class="journey-icon">
+🚀
+</div>
+
+<div class="journey-year">
+2019
+</div>
+
+<h3>Founded</h3>
+
+<p>
+Minutevin Technologies was founded with one mission:
+to transform businesses through innovative digital solutions.
+</p>
+
+</div>
+
+<div class="journey-card">
+
+<div class="journey-icon">
+⚙️
+</div>
+
+<div class="journey-year">
+2021
+</div>
+
+<h3>Expansion</h3>
+
+<p>
+Expanded into enterprise software,
+web applications,
+mobile development,
+cloud solutions
+and IT consultancy.
+</p>
+
+</div>
+
+<div class="journey-card">
+
+<div class="journey-icon">
+☁️
+</div>
+
+<div class="journey-year">
+2024
+</div>
+
+<h3>Innovation</h3>
+
+<p>
+Introduced cybersecurity,
+cloud infrastructure,
+AI automation,
+business intelligence
+and digital transformation services.
+</p>
+
+</div>
+
+<div class="journey-card">
+
+<div class="journey-icon">
+🌍
+</div>
+
+<div class="journey-year">
+Today
+</div>
+
+<h3>Engineering Africa's Future</h3>
+
+<p>
+Helping organizations across Africa build secure,
+intelligent and scalable technology solutions.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- ================= CONTACT ================= -->
@@ -998,6 +1925,137 @@ function handleSubmit() {
 
     return true; // allow Google Sheets submission
 }
+const counters = document.querySelectorAll(".counter");
+
+const statsObserver = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(!entry.isIntersecting) return;
+
+        const counter = entry.target;
+
+        const target = parseInt(counter.dataset.target);
+
+        let current = 0;
+
+        const increment = Math.max(1, Math.ceil(target/100));
+
+        function update(){
+
+            current += increment;
+
+            if(current < target){
+
+                counter.textContent = current;
+
+                requestAnimationFrame(update);
+
+            }else{
+
+                counter.textContent = target + "+";
+
+            }
+
+        }
+
+        update();
+
+        statsObserver.unobserve(counter);
+
+    });
+
+},{
+    threshold:.4
+});
+
+counters.forEach(counter=>{
+    statsObserver.observe(counter);
+});
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let current = 0;
+
+function showSlide(index){
+
+    slides.forEach(slide=>{
+        slide.classList.remove("active");
+    });
+
+    dots.forEach(dot=>{
+        dot.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+}
+
+setInterval(()=>{
+
+    current++;
+
+    if(current >= slides.length){
+        current = 0;
+    }
+
+    showSlide(current);
+
+},4000);
+
+document.querySelectorAll(".learn-btn").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        const card = button.closest(".why-card");
+
+        card.classList.toggle("active");
+
+        button.classList.toggle("active");
+
+        if(card.classList.contains("active")){
+
+            button.innerHTML='Show Less <span class="arrow">▲</span>';
+
+        }else{
+
+            button.innerHTML='Learn More <span class="arrow">▼</span>';
+
+        }
+
+    });
+
+});
+const journeyCards=document.querySelectorAll(".journey-card");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+},{threshold:.2});
+
+journeyCards.forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(60px)";
+
+card.style.transition="1s";
+
+observer.observe(card);
+
+});
 </script>
 </body>
 </html>
