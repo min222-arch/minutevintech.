@@ -29,16 +29,48 @@ backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(255,255,255,.06)
 }
 
-.logo{display:flex;align-items:center;gap:12px}
-.logo img{height:45px}
-.logo span{
-font-size:22px;
-font-weight:700;
-background:linear-gradient(90deg,#38bdf8,#2563eb);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent
+/* ===== LOGO ===== */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
+.logo img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    line-height:1.15;
+}
+
+.brand-name{
+    font-size:22px;
+    font-weight:700;
+    color:#fff;
+    margin:0;
+    background:linear-gradient(90deg,#38bdf8,#2563eb);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.brand-tagline{
+    margin:2px 0 0;
+    padding:0;
+    font-family:Consolas,monospace;
+    font-size:11px;
+    color:#38bdf8;
+    white-space:nowrap;
+    line-height:1.2;
+}
 nav a{
 margin-left:28px;
 color:#e5e7eb;
@@ -386,7 +418,7 @@ padding:40px 25px;
     margin:0;
 }
 
-}
+
 
 @media(max-width:900px){
 
@@ -465,38 +497,106 @@ text-shadow:0 0 12px rgba(56,189,248,.35);
 /* ================= MOBILE RESPONSIVENESS ================= */
 @media (max-width: 768px) {
 
-  header{
-    padding:15px 20px;
-  }
+  /* ================= RESPONSIVE NAVBAR ================= */
 
-  .logo img{
-    height:36px;
-  }
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:rgba(2,6,23,.96);
+    backdrop-filter:blur(18px);
+    z-index:9999;
+}
 
-  .brand-name{
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
     font-size:16px;
-  }
+    transition:.3s;
+}
 
-  section{
-    padding:80px 20px;
-  }
+.nav-links a:hover{
+    color:#38bdf8;
+}
 
-  .hero{
-    padding:140px 20px 80px;
-  }
+/* Hamburger Button */
+.nav-float{
+    display:none;
+    position:fixed;
+    top:15px;
+    right:20px;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#2563eb;
+    color:#fff;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:28px;
+    z-index:10001;
+}
 
-  .hero h1{
-    font-size:34px;
-    line-height:1.2;
-  }
+/* Mobile */
+@media(max-width:900px){
 
-  .hero p{
-    font-size:16px;
-  }
+    .nav-float{
+        display:flex;
+    }
 
-  nav a{
-    margin-left:0;
-  }
+    .nav-links{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:280px;
+        height:100vh;
+        background:#020617;
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:flex-start;
+        padding:90px 30px;
+        gap:25px;
+        transition:.4s ease;
+        z-index:10000;
+    }
+
+    .nav-links.open{
+        right:0;
+    }
+
+    .nav-links a{
+        font-size:18px;
+        width:100%;
+    }
+
+    .brand-tagline{
+        display:none;
+    }
+
+    .brand-name{
+        font-size:18px;
+    }
+
+    header{
+        padding:15px 20px;
+    }
+
+    .logo img{
+        height:40px;
+    }
+}
 
   /* STACK GRIDS */
   .grid,
