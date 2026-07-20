@@ -1031,7 +1031,7 @@ flex-direction:column;
 }
 /*================ WHY CHOOSE US ================*/
 
-/*================ WHY CHOOSE US ================*/
+
 
 .why{
     display:grid;
@@ -1300,6 +1300,63 @@ display:none;
 }
 
 }
+/* ===== MOBILE FIX ===== */
+@media screen and (max-width:768px){
+
+*{
+    max-width:100%;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+section,
+.wrap,
+.hero,
+.about,
+.stats,
+.why,
+.partners-grid,
+.footer-container,
+.neo-grid,
+.journey-line{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    padding-left:20px !important;
+    padding-right:20px !important;
+}
+
+img{
+    max-width:100% !important;
+    height:auto !important;
+}
+
+.slider{
+    height:320px !important;
+}
+
+.hero h1{
+    font-size:34px !important;
+}
+
+h1{
+    font-size:34px !important;
+}
+
+h2{
+    font-size:28px !important;
+}
+
+.btn,
+.neo-btn{
+    width:100%;
+}
+
+}
 </style>
 </head>
 
@@ -1313,7 +1370,7 @@ display:none;
     <span class="brand-name">Minutevin Technologies</span>
 
     <pre class="brand-tagline">
-Engineering The Future.
+//Engineering The Future().
     </pre>
   </div>
 </div>
