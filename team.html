@@ -647,35 +647,46 @@ border-top:1px solid rgba(255,255,255,.06);
     width:100%;
 }
 
-/* Mobile */
-@media(max-width:900px){
+@media (max-width:900px){
 
-    #mainHeader{
-        padding:0 20px;
-        height:70px;
-    }
-
-    .logo img{
-        height:40px;
-    }
-
-    .brand-name{
-        font-size:17px;
-    }
-
-    .brand-tagline{
-        font-size:10px;
-    }
-
-    .nav-links{
-        gap:18px;
-    }
-
-    .nav-links a{
-        font-size:14px;
-    }
+#mainHeader{
+    height:auto;
+    padding:15px;
+    flex-direction:column;
+    gap:15px;
 }
 
+.logo{
+    width:100%;
+    justify-content:center;
+}
+
+.brand-text{
+    text-align:center;
+}
+
+.brand-name{
+    font-size:18px;
+}
+
+.brand-tagline{
+    display:none;
+}
+
+.nav-links{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.nav-links a{
+    padding:8px 12px;
+    font-size:14px;
+}
+
+}
 </style>
 </head>
 
