@@ -124,64 +124,7 @@ transform:translateY(-35px) rotate(10deg);
 NAVBAR
 =========================== */
 
-header{
 
-position:fixed;
-top:0;
-width:100%;
-padding:18px 60px;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-background:rgba(2,6,23,.6);
-backdrop-filter:blur(18px);
-
-z-index:1000;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-.logo{
-
-font-size:26px;
-font-weight:800;
-color:#38bdf8;
-
-}
-
-nav{
-
-display:flex;
-gap:35px;
-
-}
-
-nav a{
-
-color:white;
-text-decoration:none;
-transition:.3s;
-
-}
-
-nav a:hover{
-
-color:#38bdf8;
-
-}
-
-.enroll-btn{
-
-padding:12px 28px;
-border-radius:50px;
-background:linear-gradient(135deg,#22c55e,#38bdf8);
-color:#020617;
-font-weight:700;
-
-}
 
 /* ===========================
 HERO CONTENT
@@ -624,66 +567,89 @@ font-size:14px;
 
 @media(max-width:768px){
 
-.nav-links{
+.hero{
+
+height:auto;
+
+min-height:100vh;
+
+padding:120px 20px 60px;
+
+}
+
+.hero-content{
+
+width:100%;
+
+max-width:100%;
+
+}
+
+.badge{
+
+font-size:13px;
+
+padding:8px 18px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+line-height:1.2;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+line-height:1.7;
+
+}
+
+.buttons{
+
+flex-direction:column;
+
+}
+
+.buttons a{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+margin-top:40px;
+
+gap:18px;
+
+}
+
+.stat{
+
+padding:20px;
+
+}
+
+.floating,
+
+.scroll{
 
 display:none;
 
 }
 
 }
-/* ================= CAREER PATH ================= */
-
-.career-section{
-
-padding:120px 8%;
-
-background:#030b18;
-
-}
-
-.section-title{
-
-text-align:center;
-
-max-width:900px;
-
-margin:auto auto 70px;
-
-}
-
-.section-title span{
-
-color:#38bdf8;
-
-font-weight:700;
-
-letter-spacing:2px;
-
-}
-
-.section-title h2{
-
-font-size:48px;
-
-margin:15px 0;
-
-}
-
-.section-title p{
-
-color:#cbd5e1;
-
-font-size:18px;
-
-}
-
-.career-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(320px, 380px));
-    justify-content:center;
-    gap:30px;
-}
-
 /* ==========================================
 PREMIUM CAREER CARD
 ========================================== */
@@ -2064,28 +2030,34 @@ transform:none;
 
 <header id="mainHeader">
 
-<div class="logo">
+    <div class="logo">
+        <img src="updated__minutevin_logo_-removebg-preview.png" >
 
-<img src="updated__minutevin_logo_-removebg-preview.png">
+        <div class="brand-text">
+            <span class="brand-name">Minutevin Technologies</span>
+            <span class="brand-tagline">Engineering The Future</span>
+        </div>
+    </div>
 
-<div class="brand-text">
-<span class="brand-name">Minutevin Technologies</span>
-<div class="brand-tagline"> />Engineering The Future</div>
-</div>
+    <div class="menu-toggle" id="menuToggle">
+        ☰
+    </div>
 
-</div>
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="contact.html">Contact</a>
+        <a href="train.html" class="active">Training</a>
+        <a href="team.html">Team</a>
 
-<nav class="nav-links">
+        <a href="#register" class="mobile-btn">
+            Enroll Now
+        </a>
+    </nav>
 
-<a href="index.html">Home</a>
-<a href="solutions.html">Solutions</a>
-<a href="contact.html">Contact</a>
-<a href="train.html" class="active">Training</a>
-<a href="team.html">Team</a>
-
-</nav>
-
-<a href="#register" class="enroll-btn">Enroll Now</a>
+    <a href="#register" class="enroll-btn desktop-btn">
+        Enroll Now
+    </a>
 
 </header>
 
@@ -3766,11 +3738,23 @@ setTimeout(() => {
     }
 
 });
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.querySelector(".nav-links");
+const menuToggle=document.getElementById("menuToggle");
+const navLinks=document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+menuToggle.onclick=()=>{
+
+navLinks.classList.toggle("active");
+
+};
+
+document.querySelectorAll("#navLinks a").forEach(link=>{
+
+link.onclick=()=>{
+
+navLinks.classList.remove("active");
+
+};
+
 });
 </script>
 </body>
