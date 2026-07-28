@@ -2022,6 +2022,40 @@ transform:none;
     color:#991b1b;
     border:1px solid #ef4444;
 }
+.menu-toggle{
+    display:none;
+    font-size:32px;
+    color:#fff;
+    cursor:pointer;
+    user-select:none;
+}
+
+@media (max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#020617;
+        flex-direction:column;
+        gap:20px;
+        padding:25px 0;
+        display:none;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .enroll-btn{
+        display:none;
+    }
+}
 </style>
 
 </head>
@@ -3732,11 +3766,12 @@ setTimeout(() => {
     }
 
 });
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
 
-
-
-
-
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
 </script>
 </body>
 </html>
